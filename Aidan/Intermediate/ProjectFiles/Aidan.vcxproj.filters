@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\Aidan.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{8CEB6601-4370-487C-BE3B-19C59A5BDDCB}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Aidan.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\AidanEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{6E4C9E54-17DC-42CD-B7C6-6F8D56402434}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\Aidan">
+      <UniqueIdentifier>{6A2669F3-FD3C-49B6-87BE-1ED51094F8F4}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Aidan\Aidan.Build.cs">
+      <Filter>Source\Aidan</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\Aidan\Aidan.cpp">
+      <Filter>Source\Aidan</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Aidan\Aidan.h">
+      <Filter>Source\Aidan</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Aidan\AidanGameModeBase.cpp">
+      <Filter>Source\Aidan</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Aidan\AidanGameModeBase.h">
+      <Filter>Source\Aidan</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
