@@ -8,4 +8,4 @@ We will also be using Trello as our source to manage who does what.
 - Kyle - 
 - Adrian - Member
 - Paula - Member
-Our times are located here: ![](time.png)
+![](time.png)
