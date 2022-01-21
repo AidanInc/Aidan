@@ -15,5 +15,5 @@ Role: Member
 
 Adrian Perez
 Email: adrianjperez@lewisu.edu
-Github 7aperez
+Github: 7aperez
 Role: Member
