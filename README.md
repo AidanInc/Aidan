@@ -2,4 +2,4 @@
 
 ## Credits
 
-[Team](Team.md)
+[Team](TEAM.md)
