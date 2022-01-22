@@ -1,19 +1,32 @@
-Kyle Brick
+# Team Members
+
+## Kyle Brick
+
 Email:  kylecbrick@lewisu.edu
+
 GitHub: kbrick712
+
 Role: 
 
-Bryan Gabe
+## Bryan Gabe
+
 Email: bryantgabe@lewisu.edu
+
 Github: BryanGabe00
+
 Role: Product Owner
 
-Paula Grata
+## Paula Grata
+
 Email: paulargrata@lewisu.edu
+
 Github: befreshyo
+
 Role: Member
 
-Adrian Perez
+## Adrian Perez
 Email: adrianjperez@lewisu.edu
+
 Github: 7aperez
+
 Role: Member
