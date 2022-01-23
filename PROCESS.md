@@ -9,9 +9,9 @@ The tools that we are using to help communicate to each other are:
 
 ## Team Roles
 - Bryan - Product Owner
-- Malik - 
+- Malik - Member
 - Diya -
-- Kyle - 
+- Kyle - Scrum Master
 - Adrian - Member
 - Paula - Member
 

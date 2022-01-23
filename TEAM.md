@@ -32,3 +32,11 @@ Email: adrianjperez@lewisu.edu
 Github: 7aperez
 
 Role: Member
+
+## Malik Tifah
+
+Email: malikltifah@lewisu.edu
+
+Github: MalikGB
+
+Role: Member
