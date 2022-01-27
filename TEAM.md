@@ -40,3 +40,8 @@ Email: malikltifah@lewisu.edu
 Github: MalikGB
 
 Role: Member
+
+## Diya Patel
+Email: diyapatel@lewisu.edu
+
+Github: dya-create
