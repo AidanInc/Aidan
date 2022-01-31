@@ -1,0 +1,7 @@
+C:\Users\bryan\Desktop\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\Definitions.Aidan.h
+C:\Users\bryan\Desktop\Aidan\Aidan\Source\Aidan\AidanGameModeBase.h
+D:\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+D:\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+D:\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
+D:\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+C:\Users\bryan\Desktop\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Inc\Aidan\AidanGameModeBase.generated.h

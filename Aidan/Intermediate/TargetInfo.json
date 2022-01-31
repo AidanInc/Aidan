@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "Aidan",
+			"Path": "C:\\Users\\bryan\\Desktop\\Aidan\\Aidan\\Source\\Aidan.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "AidanEditor",
+			"Path": "C:\\Users\\bryan\\Desktop\\Aidan\\Aidan\\Source\\AidanEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
