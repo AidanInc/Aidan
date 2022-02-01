@@ -254,17 +254,17 @@
 /I ThirdParty\PhysX3\APEX_1.4\shared\general\RenderDebug\public
 /I ThirdParty\PhysX3\APEX_1.4\shared\general\PairFilter\include
 /I ThirdParty\PhysX3\APEX_1.4\shared\internal\include
-/I "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE"
-/I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\shared"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\um"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt"
-/I C:\Users\bryan\Desktop\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine
-/Yc"C:\Users\bryan\Desktop\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"C:\Users\bryan\Desktop\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-"C:\Users\bryan\Desktop\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.cpp"
-/Fo"C:\Users\bryan\Desktop\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+/I "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037\INCLUDE"
+/I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6\include\um"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\ucrt"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt"
+/I "C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Software engineering captstone project\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine"
+/Yc"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Software engineering captstone project\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Fp"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Software engineering captstone project\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Software engineering captstone project\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.cpp"
+/Fo"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Software engineering captstone project\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
 /TP
 /GR-
 /W4
