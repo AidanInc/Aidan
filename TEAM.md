@@ -1,6 +1,6 @@
 # Team Members
 
-our team name is the  **Iteration Station**
+Our team name is the  **Iteration Station**.  Our team website can be viewed [here.](https://witty-meadow-055b73d10.1.azurestaticapps.net/)
 
 ## Kyle Brick
 
