@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
-using UnityEngine;
 
 public class Reader {
 	//private MemoryStream storeStream;
@@ -11,37 +10,35 @@ public class Reader {
 	private const char MATERIAL = (char)1;
 	private const char LIGHT = (char)2;
 	private const char MESH = (char)4;
-	private System.Text.Encoding enc = new System.Text.UTF8Encoding();
+
+	private System.Text.Encoding enc = new System.Text.ASCIIEncoding();
 	
     // constructor
     public Reader(string path) {
 		try {
 			// open file stream
 			FileStream inStream = File.OpenRead(path);
-			//storeStream = new MemoryStream((int)inStream.Length);
-			// read file into memory
-			//storeStream.SetLength(inStream.Length);
-			//inStream.Read(storeStream.GetBuffer(), 0, (int)inStream.Length);
-	
-			//storeStream.Flush();
-			// close file
-			//inStream.Close();
-			// binary reader reading memory stream
 	        r = new BinaryReader(inStream);
 		} catch (Exception e) {
 			throw e;
 		}
     }
+
 	public bool NextElementIsMaterial() {
 		// PeekChar doesn't advance reader position
-		return (r.PeekChar() == MATERIAL);
+		int next = r.PeekChar();
+		return (next == MATERIAL);
 	}
 	public bool NextElementIsLight() {
-		return (r.PeekChar() == LIGHT);
+		int next = r.PeekChar();
+		return (next == LIGHT);
 	}
+
 	public bool NextElementIsMesh() {
-		return (r.PeekChar() == MESH);
+		int next = r.PeekChar();
+		return (next == MESH);
 	}
+
     public MeshData NextMesh() { 
 		try {
 			MeshData meshData = new MeshData();
@@ -56,11 +53,12 @@ public class Reader {
 				                               (float)r.ReadDouble()));   // z
 				meshData.uvVerts.Add(new Vector2((float)r.ReadDouble(),   // u
 				                                 (float)r.ReadDouble())); // v
-				meshData.uv2Verts.Add(new Vector2((float)r.ReadDouble(),  // u2
-				                                  (float)r.ReadDouble()));// v2
+				// meshData.uv2Verts.Add(new Vector2((float)r.ReadDouble(),  // u2
+				//                                   (float)r.ReadDouble()));// v2
 			}
 			meshData.verts.TrimExcess();
 			meshData.uvVerts.TrimExcess();
+
 			int numSubmeshes = r.ReadInt32();
 			for(int i=0; i < numSubmeshes; i++) {
 				SubmeshData submeshData = new SubmeshData();
@@ -140,7 +138,7 @@ public class Reader {
 					matData.textureMap = new MapData();
 					matData.textureMap.xTiling = r.ReadDouble();
 					matData.textureMap.yTiling = r.ReadDouble();
-					matData.textureMap.rotation = r.ReadDouble();
+					//matData.textureMap.rotation = r.ReadDouble();
 					int mainTextureExtensionSize = r.ReadInt32();
 					matData.textureMap.extension = enc.GetString(r.ReadBytes(mainTextureExtensionSize));
 					int mainTextureDataSize = r.ReadInt32();

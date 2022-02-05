@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 public class MeshData {
 	public MeshData() {
@@ -7,6 +6,7 @@ public class MeshData {
 		uvVerts = new List<Vector2>();
 		uv2Verts = new List<Vector2>();
 		submeshes = new List<SubmeshData>();
+		name = "";
 	}
 	public string name;
 	public List<Vector3> verts;
@@ -101,4 +101,24 @@ public class CameraData {
 	public double xRotation; // gimball lock is not an issue here
 	public double yRotation; // because unity will convert rotation
 	public double zRotation; // to quaternion for runtime. boom.
+}
+
+public class Vector2 {
+	float x;
+	float y;
+	public Vector2(float X, float Y) {
+		x = X;
+		y = Y;
+	}
+}
+
+public class Vector3 {
+	float x;
+	float y;
+	float z;
+	public Vector3(float X, float Y, float Z) {
+		x = X;
+		y = Y;
+		z = Z;
+	}
 }
