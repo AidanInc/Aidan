@@ -12,7 +12,7 @@ public:
     LightData NextLight();
     MaterialData NextMaterial();
 
-    Reader();
+    Reader(string path);
 
 
 private:

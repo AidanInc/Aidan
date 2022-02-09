@@ -12,7 +12,7 @@ public:
 	int readInt();
 	double readDouble();
 	byte readByte();
-	byte[] readBytes(count);
+	byte[] readBytes(int count);
 
 	BinaryReader(ifstream fs);
 
