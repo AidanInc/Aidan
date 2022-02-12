@@ -11,11 +11,13 @@ public:
 	int peekNext();
 	int readInt();
 	double readDouble();
-	byte readByte();
-	byte[] readBytes(int count);
+	unsigned char readByte();
+	unsigned char[] readBytes(int count);
 
-	BinaryReader(ifstream fs);
+	BinaryReader(string path);
+	~BinaryReader();
 
 private:
 	ifstream fileStream;
+	int counter;
 };
