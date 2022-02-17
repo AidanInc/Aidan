@@ -1,0 +1,14 @@
+C:\Users\kbric\Documents\SpringSemester\Capstone\alireader\obj\Debug\netcoreapp3.1\alireader.csproj.AssemblyReference.cache
+C:\Users\kbric\Documents\SpringSemester\Capstone\alireader\obj\Debug\netcoreapp3.1\alireader.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kbric\Documents\SpringSemester\Capstone\alireader\obj\Debug\netcoreapp3.1\alireader.AssemblyInfoInputs.cache
+C:\Users\kbric\Documents\SpringSemester\Capstone\alireader\obj\Debug\netcoreapp3.1\alireader.AssemblyInfo.cs
+C:\Users\kbric\Documents\SpringSemester\Capstone\alireader\obj\Debug\netcoreapp3.1\alireader.csproj.CoreCompileInputs.cache
+C:\Users\kbric\Documents\SpringSemester\Capstone\alireader\bin\Debug\netcoreapp3.1\alireader.exe
+C:\Users\kbric\Documents\SpringSemester\Capstone\alireader\bin\Debug\netcoreapp3.1\alireader.deps.json
+C:\Users\kbric\Documents\SpringSemester\Capstone\alireader\bin\Debug\netcoreapp3.1\alireader.runtimeconfig.json
+C:\Users\kbric\Documents\SpringSemester\Capstone\alireader\bin\Debug\netcoreapp3.1\alireader.runtimeconfig.dev.json
+C:\Users\kbric\Documents\SpringSemester\Capstone\alireader\bin\Debug\netcoreapp3.1\alireader.dll
+C:\Users\kbric\Documents\SpringSemester\Capstone\alireader\bin\Debug\netcoreapp3.1\alireader.pdb
+C:\Users\kbric\Documents\SpringSemester\Capstone\alireader\obj\Debug\netcoreapp3.1\alireader.dll
+C:\Users\kbric\Documents\SpringSemester\Capstone\alireader\obj\Debug\netcoreapp3.1\alireader.pdb
+C:\Users\kbric\Documents\SpringSemester\Capstone\alireader\obj\Debug\netcoreapp3.1\alireader.genruntimeconfig.cache
