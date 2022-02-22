@@ -1,7 +1,7 @@
 // main.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include <iostream>c
+#include <iostream>
 #include "Reader.h"
 int main()
 {
