@@ -7,12 +7,5 @@ int main()
 {
     BinaryReader* r = new BinaryReader("./model.ALI");
 
-    while (!r->endOfFile()) {
-        std::cout << "Read Int: " << r->readInt() << std::endl;
-		std::cout << "peek: " << r->peekNext() << std::endl;
-
-
-    }
-
     system("PAUSE");
 }
