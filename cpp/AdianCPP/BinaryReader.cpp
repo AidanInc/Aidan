@@ -1,78 +1,96 @@
 #include "BinaryReader.h"
+#include <assert.h>
+#include <memory>
 
-BinaryReader::BinaryReader(string path)
+unsigned char Aidan::peekByte(std::ifstream& fs)
 {
-	counter = 0;
-	fileStream.open(path, ios::binary | ios::in);
-	fileStream.seekg(0);
+	unsigned char c = 0;
+	int nextInt = fs.peek();
+	c = static_cast<unsigned char>(nextInt);
+	return c;
 }
 
-BinaryReader::~BinaryReader() {
-	fileStream.close();
+int Aidan::readInt(std::ifstream& fs)
+{
+	int x = 0;
+	assert(sizeof(x) == 4); // abort if size of int isn't 4 bytes
+	fs.read(reinterpret_cast<char*>(&x), 4);
+	return x;
 }
 
-int BinaryReader::peekNext()
+float Aidan::readFloat(std::ifstream& fs)
 {
-	return fileStream.peek();
+	float x = 0.0f;
+	assert(sizeof(x) == 4);
+	fs.read(reinterpret_cast<char*>(&x), 4);
+	return x;
 }
 
-int BinaryReader::readInt()
+unsigned char Aidan::readByte(std::ifstream& fs)
 {
-	fileStream.tellg();
-	if (!fileStream.eof()) {
+	unsigned char x = 0;
+	assert(sizeof(x) == 1);
+	fs.read(reinterpret_cast<char*>(&x), 1);
+	return x;
+}
 
-		int value = 0;
-		fileStream.read((char*)&value, sizeof(value));
-		counter++;
-		fileStream.seekg(counter * sizeof(value));
-		std::cout << "Counter: " << counter << std::endl;
-		return value;
+std::string Aidan::readString(std::ifstream& fs) {
+	int len = readInt(fs);
+	std::unique_ptr<char[]> buffer{ new char[len] }; //create a char[] that will be the buffer of what we read
+	fs.read(buffer.get(), len);
+	std::string x(buffer.get(), len);
+	return x;
+}
+
+Color Aidan::readColor(std::ifstream& fs) {
+	Color c;
+	c.r = readByte(fs);
+	c.g = readByte(fs);
+	c.b = readByte(fs);
+	return c;
+}
+
+Vector2 Aidan::readVector2(std::ifstream& fs) {
+	Vector2 v;
+	v.x = readFloat(fs);
+	v.y = readFloat(fs);
+	return v;
+}
+
+Vector3 Aidan::readVector3(std::ifstream& fs) {
+	Vector3 v;
+	v.x = readFloat(fs);
+	v.y = readFloat(fs);
+	v.z = readFloat(fs);
+	return v;
+}
+
+Triangle Aidan::readTriangle(std::ifstream& fs) {
+	Triangle t;
+	t.a = readInt(fs);
+	t.b = readInt(fs);
+	t.c = readInt(fs);
+	return t;
+}
+
+SubMesh Aidan::readSubMesh(std::ifstream& fs) {
+	SubMesh sm;
+	sm.materialName = readString(fs);
+
+	int vertCount = readInt(fs);
+	for (int i = 0; i < vertCount; i++) {
+		sm.verts.push_back(readVector3(fs));
 	}
-	return NULL;
-}
 
-double BinaryReader::readDouble()
-{
-	fileStream.tellg();
-	if (!fileStream.eof()) {
-		double value = NULL;
-		fileStream.read((char*)&value, sizeof(value));
-		counter++;
-		fileStream.seekg(counter * sizeof(value));
-		return value;
+	//uverts will be the same number as verts
+	for (int i = 0; i < vertCount; i++) {
+		sm.uverts.push_back(readVector2(fs));
 	}
-	return NULL;
-}
 
-unsigned char BinaryReader::readByte()
-{
-	fileStream.tellg();
-	if (!fileStream.eof()) {
-		unsigned char value = NULL;
-		fileStream.read((char*)value, sizeof(value));
-		counter++;
-		fileStream.seekg(counter * sizeof(value));
-		return value;
+	int triCount = readInt(fs);
+	for (int i = 0; i < triCount; i++) {
+		sm.tris.push_back(readTriangle(fs));
 	}
-	return NULL;
+	return sm;
 }
 
-char* BinaryReader::readBytes(const int count)
-{
-	if (!fileStream.eof()) {
-	    char* values = new char[count](); //dynamically allocate a new array must be deleted after. 
-		for (int i = 0; i < count; i++) {
-			fileStream.tellg();
-			fileStream.read((char*)values[i], sizeof(values[i]));
-			counter++;
-			fileStream.seekg(counter * sizeof(values[i]));
-		}
-		return values;
-		delete& values;
-	}
-	return NULL;
-}
-
-bool BinaryReader::endOfFile() {
-	return fileStream.eof();
-}

@@ -1,95 +1,70 @@
 #pragma once
-
-
 #include <iostream>
 #include <string>
 #include <vector>
 
-using namespace std;
+struct Triangle {
+	int a, b, c;
+	Triangle();
+	Triangle(int A, int B, int C);
+};
 
-class Vector2 {
-public:
+struct Vector2 {
 	float x, y;
-
+	Vector2();
 	Vector2(float X, float Y);
 };
 
-class Vector3 {
-public:
+struct Vector3 {
 	float x, y, z;
-
+	Vector3();
 	Vector3(float X, float Y, float Z);
 };
 
-class SubMeshData {
-public:
-	vector<int>* tris;
-	string materialName;
-
-	SubMeshData();
+struct SubMesh {
+	std::vector<Vector3> verts;
+	std::vector<Vector2> uverts;	
+	std::vector<Triangle> tris;
+	std::string materialName;
 };
 
-class MeshData {
-public:
-	string name;
-	vector<Vector3*> verts;
-	vector<Vector2*> uuverts;
-	vector<Vector2*> uuverts2;
-	vector<SubMeshData*> submeshes;
-
-	MeshData();
+struct Mesh {
+	std::string name;
+	std::vector<SubMesh> submeshes;
 };
 
-class ColorData {
-public:
-	double r;
-	double g;
-	double b;
-	double a;
 
-	ColorData();
+/**
+ * @TODO unsure about this as it talks about Transform and don't understand this part
+ */
+struct MeshInst {
+	std::string name;
+	//Transform transform;
 };
 
-class LightData {
-public:
-	double x;
-	double y;
-	double z;
-	double intensity;
-	ColorData* colorData;
-
-	LightData();
+struct Color {
+	unsigned char r;
+	unsigned char g;
+	unsigned char b;
+	Color();
 };
 
-class MapData {
-public:
-	double xTiling;
-	double yTiling;
-	double rotation;
-	vector<char>* data;
-	string extension;
-
-	MapData();
+struct Light {
+	Vector3 pos;
+	float intensity;
+	Color color;
+	Light();
 };
 
-class MaterialData {
-public:
-	string name;
-	bool isTransparent;
-	double reflectivity;
-	ColorData* mainColor;
-	MapData* textureMap;
-	MapData* bumpMap;
-	MapData* normalMap;
-
-	MaterialData();
+struct Material {
+	std::string name;
+	unsigned char transparency;
+	Color color;
+	Material();
 };
 
-class CameraData {
-public:
-	string name;
-	double xLocation, yLocation, zLocation;
-	double xRotation, yRotation, zRotation;
-
-	CameraData();
+struct Camera {
+	std::string name;
+	Vector3 pos;
+	Vector3 rotation;
 };
