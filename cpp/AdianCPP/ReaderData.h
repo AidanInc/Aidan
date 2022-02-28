@@ -21,15 +21,15 @@ struct Vector3 {
 	Vector3(float X, float Y, float Z);
 };
 
-struct SubMesh {
-	std::vector<Vector3> verts;
-	std::vector<Vector2> uverts;	
-	std::vector<Triangle> tris;
+struct SubMesh {	
+	std::vector<int> tris;
 	std::string materialName;
 };
 
 struct Mesh {
 	std::string name;
+	std::vector<Vector3> verts;
+	std::vector<Vector2> uverts;
 	std::vector<SubMesh> submeshes;
 };
 
@@ -43,9 +43,10 @@ struct MeshInst {
 };
 
 struct Color {
-	unsigned char r;
-	unsigned char g;
-	unsigned char b;
+	double r;
+	double g;
+	double b;
+	double a;
 	Color();
 };
 
@@ -56,10 +57,22 @@ struct Light {
 	Light();
 };
 
+struct MapData {
+	double xTiling;
+	double yTiling;
+	std::string extension;
+	std::vector<char> data;
+	MapData();
+};
+
 struct Material {
 	std::string name;
-	unsigned char transparency;
+	bool transparency;
+	double reflectivity;
 	Color color;
+	MapData textureMap;
+	MapData bumpMap;
+	MapData normalMap;
 	Material();
 };
 

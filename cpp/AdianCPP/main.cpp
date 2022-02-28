@@ -17,7 +17,10 @@ int main()
             std::cout << "Material Color R: " << m.color.r << std::endl;
             std::cout << "Material Color G: " << m.color.g << std::endl;
 			std::cout << "Material Color B: " << m.color.b << std::endl;
+			std::cout << "Material Color Alpha: " << m.color.a << std::endl;
 			std::cout << "Material Transparency: " << m.transparency << std::endl;
+
+            std::cout << std::endl;
         }
 
         if (type == Aidan::AssetType::MESH) {
@@ -29,6 +32,8 @@ int main()
 				std::cout << "Submesh Material Name: " << sm.materialName << std::endl;
 
             }
+
+			std::cout << std::endl;
         }
 
         if (type == Aidan::AssetType::LIGHT) {
@@ -36,7 +41,12 @@ int main()
 			std::cout << "Light Intensity: " << l.intensity << std::endl;
 			std::cout << "Light Color R: " << l.color.r << std::endl;
 			std::cout << "Light Color G: " << l.color.g << std::endl;
-			std::cout << "Light Color B: " << l.color.b << std::endl;
+			std::cout << "Light Color B: " << l.color.b << std::endl;			
+            std::cout << "Light X: " << l.pos.x << std::endl;
+			std::cout << "Light Y: " << l.pos.y << std::endl;
+			std::cout << "Light Z: " << l.pos.z << std::endl;
+
+			std::cout << std::endl;
         }
     }
     system("PAUSE");

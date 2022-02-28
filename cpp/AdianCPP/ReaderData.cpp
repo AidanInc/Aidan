@@ -38,6 +38,7 @@ Color::Color() {
 	r = 0;
 	g = 0;
 	b = 0;
+	a = 0;
 }
 
 Light::Light() {
@@ -45,5 +46,11 @@ Light::Light() {
 }
 
 Material::Material() {
-	transparency = 0;
+	transparency = false;
+	reflectivity = 0;
+}
+
+MapData::MapData() {
+	xTiling = 0;
+	yTiling = 0;
 }
