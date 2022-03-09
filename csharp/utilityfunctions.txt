@@ -1,0 +1,330 @@
+TArray<FVector2D> Umath_test::Rotate2D(TArray<FVector2D> uvs, float rotationDegrees){//TArrays are Unreal's version of Array's (Same concept as Array Lists in Java)
+    if (rotationDegrees == 0) return uvs;
+    // we wish to rotate each uv point about the origin.
+	TArray<FVector2D> newUVs;// (To add a value to the array, use variable.add())
+    double rotationRad = rotationDegrees * PI / 180.0;
+	FVector2D* VecPtr = uvs.GetData();
+    for (int i = 0; i < uvs.Num(); i++) {
+		// Cosine and Sine take in Radians
+        newUVs.Add(FVector2D((float)(VecPtr[i].X * cos(rotationRad) - VecPtr[i].Y * sin(rotationRad)),
+			(float)(VecPtr[i].X * sin(rotationRad) + VecPtr[i].Y * cos(rotationRad)))); //Appending the new UV
+    }
+    return newUVs;
+}
+
+//Work on this function later since it depends on the binary writter
+// could use SaveArrayToFile (Saves the binary array to the file)
+/*void Umath_test::WriteFile(Byte data[] FString path) { // Need to get the byte working
+    if (FPaths::FileExists(path)) {
+        UE_LOG(LogTemp, Warning,TEXT("Unable to create")); // Need to edit this line to include path name later
+        return;
+    }
+    FileStream fs = new FileStream(path, FileMode.CreateNew);
+    // Create the writer for data
+    BinaryWriter w = new BinaryWriter(fs); // This will be implemented once the binary reader is working
+    // Write data to path
+    for (int i = 0; i < data.Length; i++) {
+        w.Write(data[i]);
+    }
+    w.Close();
+    fs.Close();
+}*/
+static TArray<INT> getSubmeshTris(TArray<INT> submeshFaces, TArray<INT> meshTris) {
+    // A listing of faces is given to us.
+    // Unity knows a list of triangles that is always exactly
+    // three times longer than our list of faces. Unity also
+    // demands that the list of tris we give to SetTriangles()
+    // is a multiple of 3.
+    // Faces are related to triangles such that
+    //    submeshFace[i] corresponds to meshTri[3i], meshTri[3i+1] and meshTri[3i+2]
+    // Create new submeshTris array 3 times longer than the faces array
+
+
+    //Original Version: int[] submeshTris = new int[submeshFaces.Length * 3];
+    TArray<INT> submeshTris;
+    // For each face, copy corresponding meshTris to submeshTris
+    for (int i = 0; i < submeshFaces.Num(); i++) {
+        submeshTris[3 * i] = meshTris[submeshFaces[i] * 3];
+        submeshTris[3 * i + 1] = meshTris[submeshFaces[i] * 3 + 1];
+        submeshTris[3 * i + 2] = meshTris[submeshFaces[i] * 3 + 2];
+    }
+    //Will need to incorporate a pointer later
+    
+    return submeshTris;
+}
+//Still need to work on this
+/*static TArray<FVector4> calculateTangents(UStaticMesh* mesh) {
+    FStaticMeshLODResources meshData;
+    FMeshDescription meshDesc;
+   
+   
+    meshRenderData = mesh->GetRenderData();
+    
+    meshData.InitResources(mesh);
+    int triangleCount = meshData.GetNumTriangles();
+    int vertexCount = meshData.GetNumVertices();
+
+    TArray<FVector> tan1;
+    TArray<FVector> tan2;
+
+    TArray<FVector4> tangents;
+    
+
+    for (long a = 0; a < triangleCount; a += 3) {
+        long i1 = mesh.triangles[a + 0];
+        long i2 = mesh.triangles[a + 1];
+        long i3 = mesh.triangles[a + 2];
+
+        FVector v1 = mesh.vertices[i1];
+        FVector v2 = mesh.vertices[i2];
+        FVector v3 = mesh.vertices[i3];
+
+        FVector w1 = mesh.uv[i1];
+        FVector w2 = mesh.uv[i2];
+        FVector w3 = mesh.uv[i3];
+
+        float x1 = v2.x - v1.x;
+        float x2 = v3.x - v1.x;
+        float y1 = v2.y - v1.y;
+        float y2 = v3.y - v1.y;
+        float z1 = v2.z - v1.z;
+        float z2 = v3.z - v1.z;
+
+        float s1 = w2.x - w1.x;
+        float s2 = w3.x - w1.x;
+        float t1 = w2.y - w1.y;
+        float t2 = w3.y - w1.y;
+
+        float r = 1.0f / (s1 * t2 - s2 * t1);
+
+        FVector sdir = FVector((t2 * x1 - t1 * x2) * r, (t2 * y1 - t1 * y2) * r, (t2 * z1 - t1 * z2) * r);
+        FVector tdir = FVector((s1 * x2 - s2 * x1) * r, (s1 * y2 - s2 * y1) * r, (s1 * z2 - s2 * z1) * r);
+
+        tan1[i1] += sdir;
+        tan1[i2] += sdir;
+        tan1[i3] += sdir;
+
+        tan2[i1] += tdir;
+        tan2[i2] += tdir;
+        tan2[i3] += tdir;
+    }
+
+
+    for (long a = 0; a < vertexCount; ++a) {
+        FVector n = mesh.normals[a];
+        FVector t = tan1[a];
+
+        FVector tmp = (t - n * FVector.Dot(n, t)).normalized;
+        tangents[a] = new FVector4(tmp.x, tmp.y, tmp.z);
+
+        tangents[a].w = (FVector.Dot(FVector.Cross(n, t), tan2[a]) < 0.0f) ? -1.0f : 1.0f;
+    }
+
+    return tangents;
+}*/
+
+static TArray<FVector2D> normalizeToRange0_1(TArray<FVector2D> vectors) {
+    // We will normalize each axis independently
+    TArray<float> x;
+    TArray<float> y;
+    for (int i = 0; i < vectors.Num(); i++) {
+        x[i] = vectors[i].X;
+        y[i] = vectors[i].Y;
+    }
+    x = normalizeToRange0_1(x);
+    y = normalizeToRange0_1(y);
+    // Reassemble before returning
+    for (int i = 0; i < vectors.Num(); i++) {
+        vectors[i].X = x[i];
+        vectors[i].Y = y[i];
+    }
+    return vectors;
+}
+static TArray<float> normalizeToRange0_1(TArray<float> numbers) {
+    // Find the minimum and maximum of this array
+    float lowestNumber = numbers[0];
+    float highestNumber = numbers[0];
+    for (int i = 0; i < numbers.Num(); i++) {
+        if (numbers[i] < lowestNumber)
+            lowestNumber = numbers[i];
+        if (numbers[i] > highestNumber)
+            highestNumber = numbers[i];
+    }
+    // Shift the array so that lowestNumber is 0
+    float shift = -lowestNumber;
+    for (int i = 0; i < numbers.Num(); i++) {
+        numbers[i] += shift;
+    }
+    // Scale the numbers so that highestNumber is 1
+    float scale = 1 / (highestNumber + shift);
+    for (int i = 0; i < numbers.Num(); i++) {
+        numbers[i] = numbers[i] * scale;
+        if (numbers[i] > 1) {
+            numbers[i] = 1; // Never trust floating point operations
+        }
+    }
+    return numbers;
+}
+//Work on this later
+
+
+// Calculates and returns rotation of a specific object (note the value has to be in radians)
+static FQuat EulerAnglesToQuaternion(double heading, double attitude, double bank){
+    double c1 = cos(heading / 2);
+    double s1 = sin(heading / 2);
+    double c2 = cos(attitude / 2);
+    double s2 = sin(attitude / 2);
+    double c3 = cos(bank / 2);
+    double s3 = sin(bank / 2);
+    double c1c2 = c1 * c2;
+    double s1s2 = s1 * s2;
+    float w = (float)(c1c2 * c3 - s1s2 * s3);
+    float x = (float)(c1c2 * s3 + s1s2 * c3);
+    float y = (float)(s1 * c2 * c3 + c1 * s2 * s3);
+    float z = (float)(c1 * s2 * c3 - s1 * c2 * s3);
+    FQuat rotation;
+    rotation.X = x;
+    rotation.Y = y;
+    rotation.Z = z;
+    rotation.W = w;
+    
+    return rotation;
+}
+/*static TArray<FVector2D> calculateUVs(UnityEngine.Mesh mesh) {
+    Vector2[] uvs = new Vector2[mesh.vertices.Length];
+    int c = 0;
+    while (c < uvs.Length) {
+        uvs[c] = new Vector2(mesh.vertices[c].x, mesh.vertices[c].z);
+        c++;
+    }
+    return uvs;
+}
+*/
+// Scales the object based on its 3-d Size
+static TArray<FVector> Scale(TArray<FVector> ft) {
+    for (int i = 0; i < ft.Num(); i++) {
+        ft[i].X = Scale(ft[i].X);
+        ft[i].Y = Scale(ft[i].Y);
+        ft[i].Z = Scale(ft[i].Z);
+    }
+    return ft;
+}
+static float Scale(float ft) {
+    // Ali units are cm
+    // Unity units are m
+    const float Coefficient = .01f;//.3048f;
+    return ft * Coefficient;
+}
+
+// solar calculation utility functions
+    // uses the date to set the "out" parameters to the ascension and declination of the sun in degrees.
+//Note AzimuthOut and AltitudeOut must be pointers 
+//out is c# way of doing pass by reference
+ static void GetSolarPosition(FDateTime Date, double Latitude, double LongitudeInDegrees,  double *AzimuthOut, double *AltitudeOut) {
+    double EarthMeanRadius = 6371.01;
+    double AstronomicalUnit = 149597890;
+    double JulianDate = GregorianToJulian(Date);
+    double DateOffset = GregorianToJulian(FDateTime(2000, 1, 1, 12, 0, 0)); //TODO
+    double JulianElapsedDays = JulianDate - DateOffset; //outside function
+
+    //start function
+   
+    double RightAscensionInRadians;
+    double* AscensionPtr = &RightAscensionInRadians;
+    double DeclinationInRadians;
+    double* DeclinationPtr = &DeclinationInRadians;
+    // Need to pass pointers into this method
+
+    GetRightAscensionAndDeclination(JulianElapsedDays, AscensionPtr, DeclinationPtr);
+    UE_LOG(LogTemp, Warning, TEXT("RightAscension: %f"), RightAscensionInRadians);
+    UE_LOG(LogTemp, Warning, TEXT("Declination: %f"), DeclinationInRadians);
+
+    double LocalMeanSiderealTimeInRadians = GetLocalMeanSiderealTime(RightAscensionInRadians, DeclinationInRadians, LongitudeInDegrees, JulianElapsedDays);
+
+    double HourAngle = LocalMeanSiderealTimeInRadians - RightAscensionInRadians;
+
+    if (HourAngle < 0) {
+        HourAngle += 2 * PI;
+    }
+    double HourAngle_degrees = RadiansToDegrees(HourAngle);
+    UE_LOG(LogTemp, Warning, TEXT("Hour angle in degrees = %f"), RadiansToDegrees(HourAngle));
+   
+    double ZenithDistance = acos(cos(DegreesToRadians(Latitude)) * cos(HourAngle) * cos(DeclinationInRadians) + sin(DeclinationInRadians) * sin(DegreesToRadians(Latitude)));
+    double y = sin(HourAngle);
+    double x = tan(DeclinationInRadians) * cos(DegreesToRadians(Latitude)) - sin(DegreesToRadians(Latitude)) * cos(HourAngle);
+    double AzimuthInRadians = atan2(y, x); // Returns the angle whose tangent is the quotient of two specified numbers.
+    if (AzimuthInRadians < 0) {
+        AzimuthInRadians += 2 * PI;
+    }
+    double AzimuthInDegrees = RadiansToDegrees(AzimuthInRadians);
+    UE_LOG(LogTemp, Warning, TEXT("AzimuthInDegrees= %f"), AzimuthInDegrees);
+    double Parallax = (EarthMeanRadius / AstronomicalUnit) * sin(ZenithDistance);
+    ZenithDistance += Parallax;
+    
+    UE_LOG(LogTemp, Warning, TEXT("ZenithDistance in Degrees = %f"), RadiansToDegrees(ZenithDistance));
+    double AltitudeInRadians = 0.5 * PI - ZenithDistance;
+    double AltitudeInDegrees = RadiansToDegrees(AltitudeInRadians);
+    UE_LOG(LogTemp, Warning, TEXT("Altitude in Degrees= %f"), AltitudeInDegrees);
+
+    //These values are stored in the correct memory address.
+    *AzimuthOut = AzimuthInDegrees;
+    *AltitudeOut = AltitudeInDegrees;
+
+}
+ //returns Right Ascension and Declination of the Sun on the given day in radians
+ //Note: RightAscension and Decliniation are pointers, so you have to retrive the value first
+static void GetRightAscensionAndDeclination(double JulianElapsedDays, double* RightAscension, double *Declination) {
+     double Omega = 2.1429 - 0.0010394594 * JulianElapsedDays;
+     double MeanLongitude = 4.895063 + 0.017202791698 * JulianElapsedDays;
+     double MeanAnomaly = 6.24006 + 0.0172019699 * JulianElapsedDays;
+     double EclipticLongitude = MeanLongitude + 0.03341607 * sin(MeanAnomaly) + 0.00034894 * sin(2 * MeanAnomaly) -
+         0.0001134 - 0.0000203 * sin(Omega);
+     double EclipticObliquity = 0.4090928 - 6.214e-9 * JulianElapsedDays + 0.0000396 * cos(Omega);
+     double y = cos(EclipticObliquity) * sin(EclipticLongitude);
+     double x = cos(EclipticLongitude);
+     double RightAscensionInRadians = atan2(y, x);
+     if (RightAscensionInRadians < 0) {
+         RightAscensionInRadians += 2 * PI;
+     }
+     double DeclinationInRadians = asin(sin(EclipticObliquity) * sin(EclipticLongitude));
+
+     *Declination = DeclinationInRadians;
+     *RightAscension = RightAscensionInRadians;
+     return;
+ }
+
+ //returns local mean sidereal time in radians.
+static double GetLocalMeanSiderealTime(double RightAscensionInRadians, double DeclinationInRadians, double LongitudeInDegrees, double JulianElapsedDays) {
+     double GreenwichMeanSiderealTimeInHours = ConvertJulianDateToGreenwichMeanSiderealTime(JulianElapsedDays);
+     double GreenwichMeanSiderealTimeInDegrees = GreenwichMeanSiderealTimeInHours * 15;
+     UE_LOG(LogTemp, Warning, TEXT("GMST= %f", GreenwichMeanSiderealTimeInHours));
+
+     // Need to change LopngitudeInDegrees into a pointer
+     double LocalMeanSiderealTimeInDegrees = (GreenwichMeanSiderealTimeInDegrees + LongitudeInDegrees);
+        LocalMeanSiderealTimeInDegrees = fmod(LocalMeanSiderealTimeInDegrees, 360);
+     // TODO
+     if (LocalMeanSiderealTimeInDegrees < 0) {
+         LocalMeanSiderealTimeInDegrees += 360;
+     }
+     double LocalMeanSiderealTimeInRadians = DegreesToRadians(LocalMeanSiderealTimeInDegrees);
+     return LocalMeanSiderealTimeInRadians;
+ }
+
+ static double GregorianToJulian(FDateTime Date) {
+     //Date.GetDate();
+      
+     return Date.GetJulianDay();
+     //return Date.ToOADate() + 2415018.5;
+ }
+ static double RadiansToDegrees(double Radians) {
+     return Radians * (180 / PI);
+ }
+ static double DegreesToRadians(double Degrees) {
+     return (PI / 180) * Degrees;
+ }
+ static double ConvertJulianDateToGreenwichMeanSiderealTime(double JulianDate) {
+     double GreenwhichTime = 18.697374558 + 24.06570982441908 * JulianDate;
+     
+     return fmod(GreenwhichTime, 24);
+         //% 24;
+ }
