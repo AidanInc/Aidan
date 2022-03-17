@@ -1,2 +1,2 @@
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Software engineering captstone project\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\Definitions.Aidan.h
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Software engineering captstone project\Aidan\Aidan\Source\Aidan\Aidan.h
+C:\Users\bryan\Desktop\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\Definitions.Aidan.h
+C:\Users\bryan\Desktop\Aidan\Aidan\Source\Aidan\Aidan.h

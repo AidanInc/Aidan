@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"C:\\Users\\malik\\OneDrive\\Desktop\\Software Engineering Capstone\\Software engineering captstone project\\Aidan\\Aidan\\Source\\Aidan\\Aidan.Build.cs",
-		"C:\\Users\\malik\\OneDrive\\Desktop\\Software Engineering Capstone\\Software engineering captstone project\\Aidan\\Aidan\\Source\\Aidan.Target.cs",
-		"C:\\Users\\malik\\OneDrive\\Desktop\\Software Engineering Capstone\\Software engineering captstone project\\Aidan\\Aidan\\Source\\AidanEditor.Target.cs"
+		"C:\\Users\\bryan\\Desktop\\Aidan\\Aidan\\Source\\Aidan\\Aidan.Build.cs",
+		"C:\\Users\\bryan\\Desktop\\Aidan\\Aidan\\Source\\Aidan.Target.cs",
+		"C:\\Users\\bryan\\Desktop\\Aidan\\Aidan\\Source\\AidanEditor.Target.cs"
 	],
-	"EngineVersion": "4.27.0"
+	"EngineVersion": "4.27.2"
 }

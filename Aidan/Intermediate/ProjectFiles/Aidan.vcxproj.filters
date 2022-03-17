@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Aidan.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{8CEB6601-4370-487C-BE3B-19C59A5BDDCB}</UniqueIdentifier>
+      <UniqueIdentifier>{89BAD7A2-3FF5-46A6-AB96-F13EA0302B40}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Aidan.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{6E4C9E54-17DC-42CD-B7C6-6F8D56402434}</UniqueIdentifier>
+      <UniqueIdentifier>{0406F007-9B2D-4DE3-9FC7-26188D530918}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -24,7 +24,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Aidan">
-      <UniqueIdentifier>{6A2669F3-FD3C-49B6-87BE-1ED51094F8F4}</UniqueIdentifier>
+      <UniqueIdentifier>{9D31D4AF-C231-46F7-92C7-E0CB1FF0215D}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Aidan\Aidan.Build.cs">
       <Filter>Source\Aidan</Filter>
@@ -40,6 +40,18 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\Aidan\AidanGameModeBase.h">
       <Filter>Source\Aidan</Filter>
+    </ClInclude>
+    <Filter Include="Source\Aidan\Private">
+      <UniqueIdentifier>{D356DD75-A154-4FBE-99A8-FFAAE27ECCE1}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Aidan\Private\AidanObject.cpp">
+      <Filter>Source\Aidan\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\Aidan\Public">
+      <UniqueIdentifier>{1B1C6405-8C01-4D24-8912-7762A2E13948}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Aidan\Public\AidanObject.h">
+      <Filter>Source\Aidan\Public</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
