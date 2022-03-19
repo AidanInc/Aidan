@@ -1,7 +1,1 @@
-﻿  BinaryReader.cpp
-  main.cpp
-C:\Users\bryan\Desktop\AidanCPP\ConsoleApplication1\main.cpp(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Reader.cpp
-  ReaderData.cpp
-  Generating Code...
-  ConsoleApplication1.vcxproj -> C:\Users\bryan\Desktop\AidanCPP\ConsoleApplication1\Debug\AidanCPP.exe
+﻿  ConsoleApplication1.vcxproj -> C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\cpp\AdianCPP\Debug\AidanCPP.exe

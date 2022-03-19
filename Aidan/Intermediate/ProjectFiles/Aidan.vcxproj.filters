@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Aidan.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{F2A9FC98-3C9E-4E2F-91C4-BEC58E571AE9}</UniqueIdentifier>
+      <UniqueIdentifier>{F3D4D01A-C18F-4401-AD09-FECCC846B434}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Aidan.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{A960E5CB-2BC8-4F68-9FE6-AE75437BE569}</UniqueIdentifier>
+      <UniqueIdentifier>{48B3EE98-C3A2-4CD6-A303-FAF2FADBCCFC}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -24,7 +24,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Aidan">
-      <UniqueIdentifier>{79C781ED-9574-40C8-8156-792FF9514EE0}</UniqueIdentifier>
+      <UniqueIdentifier>{5D81A153-4B8B-4AC6-A605-B7185786B406}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Aidan\Aidan.Build.cs">
       <Filter>Source\Aidan</Filter>
@@ -48,14 +48,32 @@
       <Filter>Source\Aidan</Filter>
     </ClInclude>
     <Filter Include="Source\Aidan\Private">
-      <UniqueIdentifier>{A8F00162-A06F-40F3-88A0-4B0DE7397C91}</UniqueIdentifier>
+      <UniqueIdentifier>{27DB9D61-4B27-4863-ACF8-7151167BDE30}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\Aidan\Private\ConstructionManager.cpp">
+      <Filter>Source\Aidan\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Aidan\Private\ConstructionManager.h">
+      <Filter>Source\Aidan\Private</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Aidan\Private\GenerateMaterials.cpp">
+      <Filter>Source\Aidan\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Aidan\Private\ProcLight.cpp">
+      <Filter>Source\Aidan\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Aidan\Private\Test.cpp">
       <Filter>Source\Aidan\Private</Filter>
     </ClCompile>
     <Filter Include="Source\Aidan\Public">
-      <UniqueIdentifier>{39AAFAAF-E53B-42BC-8ADD-01CEB106F36D}</UniqueIdentifier>
+      <UniqueIdentifier>{0CA47844-0D4A-443E-A88B-10D2B8F3E4B1}</UniqueIdentifier>
     </Filter>
+    <ClInclude Include="..\..\Source\Aidan\Public\GenerateMaterials.h">
+      <Filter>Source\Aidan\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Aidan\Public\ProcLight.h">
+      <Filter>Source\Aidan\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Aidan\Public\Test.h">
       <Filter>Source\Aidan\Public</Filter>
     </ClInclude>
