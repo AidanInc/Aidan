@@ -2,7 +2,6 @@
 
 
 #include "AidanObject.h"
-
 // Sets default values
 AAidanObject::AAidanObject()
 {

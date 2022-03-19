@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Aidan.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{89BAD7A2-3FF5-46A6-AB96-F13EA0302B40}</UniqueIdentifier>
+      <UniqueIdentifier>{C2ADF657-9411-41AB-8FFA-690120527A9E}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Aidan.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{0406F007-9B2D-4DE3-9FC7-26188D530918}</UniqueIdentifier>
+      <UniqueIdentifier>{39AC139A-C4C2-4F10-9717-8F67E87A1107}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -24,7 +24,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Aidan">
-      <UniqueIdentifier>{9D31D4AF-C231-46F7-92C7-E0CB1FF0215D}</UniqueIdentifier>
+      <UniqueIdentifier>{88E7B1C0-5BCB-477D-A01F-5CDC73CB0FE4}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Aidan\Aidan.Build.cs">
       <Filter>Source\Aidan</Filter>
@@ -42,15 +42,33 @@
       <Filter>Source\Aidan</Filter>
     </ClInclude>
     <Filter Include="Source\Aidan\Private">
-      <UniqueIdentifier>{D356DD75-A154-4FBE-99A8-FFAAE27ECCE1}</UniqueIdentifier>
+      <UniqueIdentifier>{732B3C2B-9441-4E27-BE96-A4ED8490FB05}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Aidan\Private\AidanObject.cpp">
       <Filter>Source\Aidan\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Aidan\Private\BinaryReader.cpp">
+      <Filter>Source\Aidan\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Aidan\Private\Reader.cpp">
+      <Filter>Source\Aidan\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Aidan\Private\ReaderData.cpp">
+      <Filter>Source\Aidan\Private</Filter>
+    </ClCompile>
     <Filter Include="Source\Aidan\Public">
-      <UniqueIdentifier>{1B1C6405-8C01-4D24-8912-7762A2E13948}</UniqueIdentifier>
+      <UniqueIdentifier>{18FE425A-51FC-4E1D-8499-76D1184E4913}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Aidan\Public\AidanObject.h">
+      <Filter>Source\Aidan\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Aidan\Public\BinaryReader.h">
+      <Filter>Source\Aidan\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Aidan\Public\Reader.h">
+      <Filter>Source\Aidan\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Aidan\Public\ReaderData.h">
       <Filter>Source\Aidan\Public</Filter>
     </ClInclude>
   </ItemGroup>
