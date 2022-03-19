@@ -1,0 +1,7 @@
+﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan).
+  Building AidanEditor...
+  Using Visual Studio 2019 14.29.30038 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30037) and Windows 10.0.16299.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  Building 1 action with 8 processes...
+    [1/1] AidanEditor.target
+  Total time in Parallel executor: 0.63 seconds
+  Total execution time: 2.42 seconds
