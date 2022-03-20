@@ -1,0 +1,60 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "ProcLight.h"
+
+// Sets default values
+AProcLight::AProcLight()
+{
+ 	
+	procLight = CreateDefaultSubobject<UPointLightComponent>(TEXT("light")); // Creating the object in the world
+	
+	RootComponent = procLight;
+	
+}
+
+// Called when the game starts or when spawned
+void AProcLight::BeginPlay()
+{
+	Super::BeginPlay();
+	//buildLight( ); Test to make sure it works
+	
+	
+}
+void AProcLight::buildLight(FVector4 genlightColor, float lightIntensity, FVector lightPosition) {
+	//Test parameters
+	/*lightColor.R = 0;
+	lightColor.B = 1;
+	lightColor.G = 0;
+	lightColor.A = 1;
+
+	intensity = 1000000.0f;
+	position.X = -250.0;
+	position.Y = -250.0;
+	position.Z = 400.0;
+
+	
+	*/
+	//Setting the attributes of the light
+	lightColor.R = genlightColor.X;
+	lightColor.G = genlightColor.Y;
+	lightColor.B = genlightColor.Z;
+	lightColor.A = genlightColor.W;
+	
+
+	intensity = lightIntensity;
+
+	position.X = lightPosition.X;
+	position.Y = lightPosition.Y;
+	position.Z = lightPosition.Z;
+
+	procLight->SetIntensity(intensity);
+	procLight->SetLightColor(lightColor);
+	procLight->SetWorldLocation(position);
+	procLight->SetVisibility(true);
+	
+	
+	
+}
+
+

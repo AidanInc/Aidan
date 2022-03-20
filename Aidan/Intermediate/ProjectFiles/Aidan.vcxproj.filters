@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Aidan.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{C2ADF657-9411-41AB-8FFA-690120527A9E}</UniqueIdentifier>
+      <UniqueIdentifier>{22E2AFB4-E582-45AD-8429-13A3BD913E3B}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Aidan.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{39AC139A-C4C2-4F10-9717-8F67E87A1107}</UniqueIdentifier>
+      <UniqueIdentifier>{84F7869B-8715-4C6B-8C92-A274FD951D3B}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -24,7 +24,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Aidan">
-      <UniqueIdentifier>{88E7B1C0-5BCB-477D-A01F-5CDC73CB0FE4}</UniqueIdentifier>
+      <UniqueIdentifier>{404E6240-4753-41BD-BDDC-F096E165FBDC}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Aidan\Aidan.Build.cs">
       <Filter>Source\Aidan</Filter>
@@ -42,12 +42,21 @@
       <Filter>Source\Aidan</Filter>
     </ClInclude>
     <Filter Include="Source\Aidan\Private">
-      <UniqueIdentifier>{732B3C2B-9441-4E27-BE96-A4ED8490FB05}</UniqueIdentifier>
+      <UniqueIdentifier>{C2A2EB05-A7B2-441E-B89D-8AD458F4B192}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Aidan\Private\AidanObject.cpp">
       <Filter>Source\Aidan\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Aidan\Private\BinaryReader.cpp">
+      <Filter>Source\Aidan\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Aidan\Private\ConstructionManager.cpp">
+      <Filter>Source\Aidan\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Aidan\Private\ProcLight.cpp">
+      <Filter>Source\Aidan\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Aidan\Private\ProcMesh.cpp">
       <Filter>Source\Aidan\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Aidan\Private\Reader.cpp">
@@ -57,12 +66,21 @@
       <Filter>Source\Aidan\Private</Filter>
     </ClCompile>
     <Filter Include="Source\Aidan\Public">
-      <UniqueIdentifier>{18FE425A-51FC-4E1D-8499-76D1184E4913}</UniqueIdentifier>
+      <UniqueIdentifier>{684BFC60-5F3F-4721-8A12-DD4387FB1E44}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Aidan\Public\AidanObject.h">
       <Filter>Source\Aidan\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Aidan\Public\BinaryReader.h">
+      <Filter>Source\Aidan\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Aidan\Public\ConstructionManager.h">
+      <Filter>Source\Aidan\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Aidan\Public\ProcLight.h">
+      <Filter>Source\Aidan\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Aidan\Public\ProcMesh.h">
       <Filter>Source\Aidan\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Aidan\Public\Reader.h">

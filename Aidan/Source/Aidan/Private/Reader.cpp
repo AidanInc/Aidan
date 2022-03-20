@@ -29,6 +29,8 @@ AssetType Reader::peekNextAsset() {
 		return AssetType::MESH;
 	default:
 		std::cout << "Asset type not found" << std::endl;
+		return AssetType::NONE;
+		
 	};
 }
 
