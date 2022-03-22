@@ -12,6 +12,7 @@ AConstructionManager::AConstructionManager()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+    //binaryReader = Reader("insert_Path_here");
 
 }
 
@@ -19,11 +20,12 @@ AConstructionManager::AConstructionManager()
 void AConstructionManager::BeginPlay()
 {
 	Super::BeginPlay();
+    //beginReading();
 	
 }
 
 
-template <typename ObjClass>
+/*template <typename ObjClass>
 static FORCEINLINE ObjClass* LoadObjFromPath(const FName& Path)
 {
     if (Path == NAME_None) return nullptr;
@@ -38,21 +40,76 @@ static FORCEINLINE UMaterial* LoadMaterialFromPath(const FName& Path)
     return LoadObjFromPath<UMaterial>(Path);
 }
 
+void AConstructionManager::beginReading() {
+   
 
-void AConstructionManager::buildLight() {
-    AProcLight* currentLight;
-    currentLight->buildLight(); // Insert data here
+    while (!(binaryReader.endOfFile())) {
+        currentAsset = binaryReader.peekNextAsset();
+        if (currentAsset == AssetType::MATERIAL) {
+            auto material = binaryReader.readMaterial();
+            buildMaterial(material);
+
+        }
+        else if (currentAsset == AssetType::MESH) {
+            auto mesh = binaryReader.readMesh();
+
+        }
+        
+        else if (currentAsset == AssetType::LIGHT) {
+            auto Light = binaryReader.readLight();
+            buildLight(Light);
+
+        }
+        else if (currentAsset == AssetType::CAMERA) {
+
+        }
+        else {
+            //Break here
+        }
+    }
+}
+void AConstructionManager::buildLight(Light light) {
+
+    AProcLight* currentLight = nullptr;
+    FLinearColor color;
+    color.A = light.color.a;
+    color.B = light.color.b;
+    color.R = light.color.r;
+    color.G = light.color.g;
+    FVector position;
+    position[0] = light.pos.x;
+    position[1] = light.pos.y;
+    position[2] = light.pos.z;
+
+
+    currentLight->buildLight(position,color,light.intensity); // Insert data here
     genlights.Add(currentLight);
 
 }
-void AConstructionManager::buildMesh() {
-    AProcMesh* currentMesh;
-    currentMesh->CreateMesh();// Insert Data into here
-    genMeshes.Add(currentMesh);
+void AConstructionManager::buildMesh(Mesh mesh) {
+    //AProcMesh* currentMesh;
+    FVector verticie;
+    TArray<FVector> allVerticies;
+    FVector uv;
+    TArray<FVector2D> Uvs;
+    TArray<int32> triangles;
+    FString MaterialName;
+    for (int i = 0; i < mesh.verts.size(); i++) {
+        verticie.X = mesh.verts[i].x;
+        verticie.Y = mesh.verts[i].y;
+        verticie.Z = mesh.verts[i].z;
+        allVerticies.Add(verticie);
+    }
+    for (int i = 0; i < mesh.uverts.size(); i++) {
+        
+    }
+    
+    //currentMesh->CreateMesh();// Insert Data into here
+    //genMeshes.Add(currentMesh);
 }
-void AConstructionManager::buildMaterial(MatData matdata) {
+void AConstructionManager::buildMaterial(Material matdata) {
     //Code was obtained from: https://isaratech.com/ue4-programmatically-create-a-new-material-and-inner-nodes/
-    UE_LOG(LogTemp, Warning, TEXT("generating " + matdata.name));
+    //    UE_LOG(LogTemp, Warning, TEXT("generating %s ", matdata.name));
 
     // Determining Shaders from material properties
     //                           Color | TextureMap | Transparent | Reflective
@@ -71,7 +128,7 @@ void AConstructionManager::buildMaterial(MatData matdata) {
     // the 2 is appended to AliDocument is because "AliDocument" is the namespace name.
 
     //Creating the material asset
-    FString MaterialName = matData.name; // Swap this out for the name of the material we are reading in
+    FString MaterialName = matdata.name.c_str(); // Swap this out for the name of the material we are reading in
     FString PackageName = "/Game/Materials"; // This is where we will store the materials (root directory is /Game/)
     PackageName += MaterialName;
     //Trying to load the material
@@ -96,14 +153,21 @@ void AConstructionManager::buildMaterial(MatData matdata) {
 
     //Setting the opacity of the material
     UMaterialExpressionConstant* OpacityExpression = NewObject<UMaterialExpressionConstant>(UnrealMaterial);
-    OpacityExpression->R = 1 - matData.transparency;
+    if (matdata.transparency) {
+        OpacityExpression->R = 1;
+
+    }
+    else {
+        OpacityExpression->R = 0;
+    }
+   
     UnrealMaterial->Expressions.Add(OpacityExpression);
     UnrealMaterial->Opacity.Expression = OpacityExpression;
 
 
     //Setting the Roughness / reflectiveness of the material 
     UMaterialExpressionConstant* RoughExpression = NewObject<UMaterialExpressionConstant>(UnrealMaterial);
-    RoughExpression->R = 1 - matData.reflectivity;// Roughness and reflectiveness are inversly related
+    RoughExpression->R = 1 - matdata.reflectivity;// Roughness and reflectiveness are inversly related
     UnrealMaterial->Expressions.Add(RoughExpression);
     UnrealMaterial->Roughness.Expression = RoughExpression;
 
@@ -114,10 +178,10 @@ void AConstructionManager::buildMaterial(MatData matdata) {
 
     FLinearColor baseColor;
     auto* colorPtr = &baseColor;
-    colorPtr->A = matData.color.a;
-    colorPtr->B = matData.color.b;
-    colorPtr->G = matData.color.g;
-    colorPtr->R = matData.color.R;
+    colorPtr->A = matdata.color.a;
+    colorPtr->B = matdata.color.b;
+    colorPtr->G = matdata.color.g;
+    colorPtr->R = matdata.color.r;
 
     BaseColorExpression->Constant = baseColor;
     UnrealMaterial->Expressions.Add(BaseColorExpression);
@@ -126,7 +190,7 @@ void AConstructionManager::buildMaterial(MatData matdata) {
 
     /* UMaterialExpressionMultiply* Multiply = NewObject<UMaterialExpressionMultiply>(UnrealMaterial);
      UnrealMaterial->Expressions.Add(Multiply);
-     */
+     
 
 }
-
+*/

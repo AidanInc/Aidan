@@ -16,7 +16,20 @@ C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan
 C:\Program Files\Epic Games\UE_4.27\Engine\Plugins\Runtime\ProceduralMeshComponent\Source\ProceduralMeshComponent\Public\ProceduralMeshComponent.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Plugins\Runtime\ProceduralMeshComponent\Intermediate\Build\Win64\UE4Editor\Inc\ProceduralMeshComponent\ProceduralMeshComponent.generated.h
 C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Inc\Aidan\ProcMesh.generated.h
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Source\Aidan\Public\Reader.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime/Engine/Classes/Materials/MaterialExpressionConstant3Vector.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\MaterialExpressionConstant3Vector.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Editor/UnrealEd/Classes/Factories/MaterialFactoryNew.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Editor\UnrealEd\Classes\Factories/Factory.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UnrealEd\Factory.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UnrealEd\MaterialFactoryNew.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime/AssetRegistry/Public/AssetRegistry/AssetRegistryModule.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\AssetRegistry\Public\AssetRegistry/IAssetRegistry.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\Misc/AssetRegistryInterface.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\AssetRegistry/ARFilter.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AssetRegistry\IAssetRegistry.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime/Engine/Classes/Materials/MaterialExpressionConstant.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\MaterialExpressionConstant.generated.h
+C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Source\Aidan/Public/Reader.h
 C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Source\Aidan\Public\ReaderData.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\iostream
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\istream
@@ -53,18 +66,4 @@ C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\ucrt\locale.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\string
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\vector
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\fstream
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Source\Aidan\Public\BinaryReader.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime/Engine/Classes/Materials/MaterialExpressionConstant3Vector.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\MaterialExpressionConstant3Vector.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Editor/UnrealEd/Classes/Factories/MaterialFactoryNew.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Editor\UnrealEd\Classes\Factories/Factory.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UnrealEd\Factory.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UnrealEd\MaterialFactoryNew.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime/AssetRegistry/Public/AssetRegistry/AssetRegistryModule.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\AssetRegistry\Public\AssetRegistry/IAssetRegistry.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\Misc/AssetRegistryInterface.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\AssetRegistry/ARFilter.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\AssetRegistry\IAssetRegistry.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime/Engine/Classes/Materials/MaterialExpressionConstant.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\MaterialExpressionConstant.generated.h
 C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Inc\Aidan\ConstructionManager.generated.h

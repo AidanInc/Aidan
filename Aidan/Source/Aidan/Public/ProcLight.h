@@ -30,7 +30,7 @@ public:
 	FVector position;
 
 	UFUNCTION()
-		void buildLight(FVector4 genlightColor, float lightIntensity,FVector lightPosition);
+		void buildLight(FVector lightPosition,FLinearColor genLightColor, float lightIntensity);
 
 	
 

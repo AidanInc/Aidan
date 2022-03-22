@@ -8,8 +8,8 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-struct FVector4;
 struct FVector;
+struct FLinearColor;
 #ifdef AIDAN_ProcLight_generated_h
 #error "ProcLight.generated.h already included, missing '#pragma once' in ProcLight.h"
 #endif

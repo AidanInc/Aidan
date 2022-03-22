@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeAidan_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xC391FC12,
+				0xA913319B,
 				0xC3CAE76B,
 				METADATA_PARAMS(nullptr, 0)
 			};

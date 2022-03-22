@@ -21,6 +21,7 @@ namespace Aidan {
         Material readMaterial();
         Mesh readMesh();
         Reader(std::string path);
+        Reader();
 
 
     private:

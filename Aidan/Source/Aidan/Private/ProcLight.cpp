@@ -21,7 +21,7 @@ void AProcLight::BeginPlay()
 	
 	
 }
-void AProcLight::buildLight(FVector4 genlightColor, float lightIntensity, FVector lightPosition) {
+void AProcLight::buildLight(FVector lightPosition, FLinearColor genlightColor, float lightIntensity) {
 	//Test parameters
 	/*lightColor.R = 0;
 	lightColor.B = 1;
@@ -36,17 +36,9 @@ void AProcLight::buildLight(FVector4 genlightColor, float lightIntensity, FVecto
 	
 	*/
 	//Setting the attributes of the light
-	lightColor.R = genlightColor.X;
-	lightColor.G = genlightColor.Y;
-	lightColor.B = genlightColor.Z;
-	lightColor.A = genlightColor.W;
-	
-
+	lightColor = genlightColor;
 	intensity = lightIntensity;
-
-	position.X = lightPosition.X;
-	position.Y = lightPosition.Y;
-	position.Z = lightPosition.Z;
+	position = lightPosition;
 
 	procLight->SetIntensity(intensity);
 	procLight->SetLightColor(lightColor);

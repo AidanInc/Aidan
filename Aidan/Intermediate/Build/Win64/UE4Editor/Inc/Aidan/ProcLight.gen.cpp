@@ -17,19 +17,18 @@ void EmptyLinkFunctionForGeneratedCodeProcLight() {}
 	AIDAN_API UClass* Z_Construct_UClass_AProcLight();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_Aidan();
-	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector4();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
-	ENGINE_API UClass* Z_Construct_UClass_UPointLightComponent_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FLinearColor();
+	ENGINE_API UClass* Z_Construct_UClass_UPointLightComponent_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AProcLight::execbuildLight)
 	{
-		P_GET_STRUCT(FVector4,Z_Param_genlightColor);
-		P_GET_PROPERTY(FFloatProperty,Z_Param_lightIntensity);
 		P_GET_STRUCT(FVector,Z_Param_lightPosition);
+		P_GET_STRUCT(FLinearColor,Z_Param_genLightColor);
+		P_GET_PROPERTY(FFloatProperty,Z_Param_lightIntensity);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->buildLight(Z_Param_genlightColor,Z_Param_lightIntensity,Z_Param_lightPosition);
+		P_THIS->buildLight(Z_Param_lightPosition,Z_Param_genLightColor,Z_Param_lightIntensity);
 		P_NATIVE_END;
 	}
 	void AProcLight::StaticRegisterNativesAProcLight()
@@ -44,26 +43,26 @@ void EmptyLinkFunctionForGeneratedCodeProcLight() {}
 	{
 		struct ProcLight_eventbuildLight_Parms
 		{
-			FVector4 genlightColor;
-			float lightIntensity;
 			FVector lightPosition;
+			FLinearColor genLightColor;
+			float lightIntensity;
 		};
-		static const UE4CodeGen_Private::FStructPropertyParams NewProp_genlightColor;
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_lightIntensity;
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_lightPosition;
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_genLightColor;
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_lightIntensity;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AProcLight_buildLight_Statics::NewProp_genlightColor = { "genlightColor", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ProcLight_eventbuildLight_Parms, genlightColor), Z_Construct_UScriptStruct_FVector4, METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AProcLight_buildLight_Statics::NewProp_lightIntensity = { "lightIntensity", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ProcLight_eventbuildLight_Parms, lightIntensity), METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AProcLight_buildLight_Statics::NewProp_lightPosition = { "lightPosition", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ProcLight_eventbuildLight_Parms, lightPosition), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AProcLight_buildLight_Statics::NewProp_genLightColor = { "genLightColor", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ProcLight_eventbuildLight_Parms, genLightColor), Z_Construct_UScriptStruct_FLinearColor, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AProcLight_buildLight_Statics::NewProp_lightIntensity = { "lightIntensity", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ProcLight_eventbuildLight_Parms, lightIntensity), METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AProcLight_buildLight_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AProcLight_buildLight_Statics::NewProp_genlightColor,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AProcLight_buildLight_Statics::NewProp_lightIntensity,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AProcLight_buildLight_Statics::NewProp_lightPosition,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AProcLight_buildLight_Statics::NewProp_genLightColor,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AProcLight_buildLight_Statics::NewProp_lightIntensity,
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AProcLight_buildLight_Statics::Function_MetaDataParams[] = {
@@ -116,7 +115,7 @@ void EmptyLinkFunctionForGeneratedCodeProcLight() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_Aidan,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AProcLight_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AProcLight_buildLight, "buildLight" }, // 257376507
+		{ &Z_Construct_UFunction_AProcLight_buildLight, "buildLight" }, // 738959776
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProcLight_Statics::Class_MetaDataParams[] = {
@@ -186,7 +185,7 @@ void EmptyLinkFunctionForGeneratedCodeProcLight() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AProcLight, 1696973395);
+	IMPLEMENT_CLASS(AProcLight, 694090421);
 	template<> AIDAN_API UClass* StaticClass<AProcLight>()
 	{
 		return AProcLight::StaticClass();
