@@ -32,7 +32,7 @@
 /wd4244
 /wd4838
 /I .
-/I "C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Source\Aidan\Private"
+/I C:\Users\bryan\Documents\GitHub\Aidan\Aidan\Source\Aidan\Private
 /I ..\Plugins\Runtime\ProceduralMeshComponent\Intermediate\Build\Win64\UE4Editor\Inc\ProceduralMeshComponent
 /I ..\Plugins\Runtime\ProceduralMeshComponent\Source
 /I ..\Plugins\Runtime\ProceduralMeshComponent\Source\ProceduralMeshComponent\Public
@@ -235,9 +235,9 @@
 /I Editor\Kismet\Public
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\ClothingSystemRuntimeInterface
 /I Runtime\ClothingSystemRuntimeInterface\Public
-/I "C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Inc\Aidan"
-/I "C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Source"
-/I "C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Source\Aidan\Public"
+/I C:\Users\bryan\Documents\GitHub\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Inc\Aidan
+/I C:\Users\bryan\Documents\GitHub\Aidan\Aidan\Source
+/I C:\Users\bryan\Documents\GitHub\Aidan\Aidan\Source\Aidan\Public
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager
 /I ThirdParty\PhysX3\PxShared\include\filebuf
@@ -262,17 +262,17 @@
 /I ThirdParty\PhysX3\APEX_1.4\shared\general\PairFilter\include
 /I ThirdParty\PhysX3\APEX_1.4\shared\internal\include
 /I "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE"
-/I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6\include\um"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\ucrt"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt"
-/FI"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Yu"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Source\Aidan\Private\Reader.cpp"
-/FI"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\Definitions.Aidan.h"
-/Fo"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\Reader.cpp.obj"
+/I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt"
+/FI"C:\Users\bryan\Documents\GitHub\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Yu"C:\Users\bryan\Documents\GitHub\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Fp"C:\Users\bryan\Documents\GitHub\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+"C:\Users\bryan\Documents\GitHub\Aidan\Aidan\Source\Aidan\Private\Reader.cpp"
+/FI"C:\Users\bryan\Documents\GitHub\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\Definitions.Aidan.h"
+/Fo"C:\Users\bryan\Documents\GitHub\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\Reader.cpp.obj"
 /TP
 /GR-
 /W4
