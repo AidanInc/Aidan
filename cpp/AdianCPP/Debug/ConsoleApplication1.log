@@ -1,15 +1,2 @@
-﻿  BinaryReader.cpp
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\cpp\AdianCPP\BinaryReader.cpp(64,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\cpp\AdianCPP\BinaryReader.cpp(65,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\cpp\AdianCPP\BinaryReader.cpp(71,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\cpp\AdianCPP\BinaryReader.cpp(72,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\cpp\AdianCPP\BinaryReader.cpp(73,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  main.cpp
-  Reader.cpp
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\cpp\AdianCPP\Reader.cpp(42,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\cpp\AdianCPP\Reader.cpp(83,21): warning C4018: '<': signed/unsigned mismatch
-  ReaderData.cpp
-  Generating Code...
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\cpp\AdianCPP\Reader.cpp(33): warning C4715: 'Aidan::Reader::peekNextAsset': not all control paths return a value
-  LINK : C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\cpp\AdianCPP\Debug\AidanCPP.exe not found or not built by the last incremental link; performing full link
-  ConsoleApplication1.vcxproj -> C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\cpp\AdianCPP\Debug\AidanCPP.exe
+﻿  main.cpp
+  ConsoleApplication1.vcxproj -> C:\Users\bryan\Documents\GitHub\Aidan\cpp\AdianCPP\Debug\AidanCPP.exe
