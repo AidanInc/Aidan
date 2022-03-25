@@ -2,7 +2,7 @@
 
 
 #include "ConstructionManager.h"
-
+#include "Misc/Paths.h"
 
 
 
@@ -44,7 +44,9 @@ static FORCEINLINE UMaterial* LoadMaterialFromPath(const FName& Path)
 
 void AConstructionManager::beginReading() {
 
-    std::string path = "C:/Users/malik/OneDrive/Desktop/Software Engineering Capstone/Capstone/Aidan/cpp/AdianCPP/model.ALI";
+    FString dir = FPaths::ProjectDir().Append("ali/model.ALI");
+	UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *dir);
+    std::string path(TCHAR_TO_UTF8(*dir));
     binaryReader = Aidan::Reader(path);
 
     while (!(binaryReader.endOfFile())) {
