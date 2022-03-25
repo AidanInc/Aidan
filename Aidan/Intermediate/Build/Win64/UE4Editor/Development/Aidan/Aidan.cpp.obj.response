@@ -33,14 +33,17 @@
 /wd4838
 /I .
 /I "C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Source\Aidan\Private"
-/I ..\Intermediate\Build\Win64\UE4Editor\Inc\Engine
+/I ..\Plugins\Runtime\ProceduralMeshComponent\Intermediate\Build\Win64\UE4Editor\Inc\ProceduralMeshComponent
+/I ..\Plugins\Runtime\ProceduralMeshComponent\Source
+/I ..\Plugins\Runtime\ProceduralMeshComponent\Source\ProceduralMeshComponent\Public
 /I Runtime
-/I Runtime\Engine\Classes
-/I Runtime\Engine\Public
 /I Runtime\TraceLog\Public
 /I Runtime\Core\Public
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\CoreUObject
 /I Runtime\CoreUObject\Public
+/I ..\Intermediate\Build\Win64\UE4Editor\Inc\Engine
+/I Runtime\Engine\Classes
+/I Runtime\Engine\Public
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\NetCore
 /I Runtime\Net
 /I Runtime\Net\Core\Classes
@@ -235,9 +238,6 @@
 /I "C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Inc\Aidan"
 /I "C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Source"
 /I "C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Source\Aidan\Public"
-/I ..\Plugins\Runtime\ProceduralMeshComponent\Intermediate\Build\Win64\UE4Editor\Inc\ProceduralMeshComponent
-/I ..\Plugins\Runtime\ProceduralMeshComponent\Source
-/I ..\Plugins\Runtime\ProceduralMeshComponent\Source\ProceduralMeshComponent\Public
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager
 /I ThirdParty\PhysX3\PxShared\include\filebuf
@@ -267,9 +267,9 @@
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt"
-/FI"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Yu"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+/FI"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\UnrealEd\SharedPCH.UnrealEd.ShadowErrors.h"
+/Yu"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\UnrealEd\SharedPCH.UnrealEd.ShadowErrors.h"
+/Fp"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\AidanEditor\Development\UnrealEd\SharedPCH.UnrealEd.ShadowErrors.h.pch"
 "C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Source\Aidan\Aidan.cpp"
 /FI"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\Definitions.Aidan.h"
 /Fo"C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\Aidan.cpp.obj"

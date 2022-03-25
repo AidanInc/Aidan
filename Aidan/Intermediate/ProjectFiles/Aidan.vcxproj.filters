@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Aidan.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{F3D4D01A-C18F-4401-AD09-FECCC846B434}</UniqueIdentifier>
+      <UniqueIdentifier>{7801992D-8D42-4E1A-A2AE-ED8F79A3686B}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Aidan.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{48B3EE98-C3A2-4CD6-A303-FAF2FADBCCFC}</UniqueIdentifier>
+      <UniqueIdentifier>{14924B9D-5E25-4A08-BA33-27FEFD8C6ECB}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -24,7 +24,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Aidan">
-      <UniqueIdentifier>{5D81A153-4B8B-4AC6-A605-B7185786B406}</UniqueIdentifier>
+      <UniqueIdentifier>{1A6CD95F-5D72-499F-8CB4-D84A17B1A661}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Aidan\Aidan.Build.cs">
       <Filter>Source\Aidan</Filter>
@@ -41,40 +41,52 @@
     <ClInclude Include="..\..\Source\Aidan\AidanGameModeBase.h">
       <Filter>Source\Aidan</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\Aidan\ProcMesh.cpp">
-      <Filter>Source\Aidan</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\Aidan\ProcMesh.h">
-      <Filter>Source\Aidan</Filter>
-    </ClInclude>
     <Filter Include="Source\Aidan\Private">
-      <UniqueIdentifier>{27DB9D61-4B27-4863-ACF8-7151167BDE30}</UniqueIdentifier>
+      <UniqueIdentifier>{A4230748-B17E-4EDC-8863-77AEB192B62D}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\Aidan\Private\ConstructionManager.cpp">
+    <ClCompile Include="..\..\Source\Aidan\Private\AidanObject.cpp">
       <Filter>Source\Aidan\Private</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Aidan\Private\ConstructionManager.h">
+    <ClCompile Include="..\..\Source\Aidan\Private\BinaryReader.cpp">
       <Filter>Source\Aidan\Private</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\Aidan\Private\GenerateMaterials.cpp">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Aidan\Private\ConstructionManager.cpp">
       <Filter>Source\Aidan\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Aidan\Private\ProcLight.cpp">
       <Filter>Source\Aidan\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Aidan\Private\Test.cpp">
+    <ClCompile Include="..\..\Source\Aidan\Private\ProcMesh.cpp">
+      <Filter>Source\Aidan\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Aidan\Private\Reader.cpp">
+      <Filter>Source\Aidan\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Aidan\Private\ReaderData.cpp">
       <Filter>Source\Aidan\Private</Filter>
     </ClCompile>
     <Filter Include="Source\Aidan\Public">
-      <UniqueIdentifier>{0CA47844-0D4A-443E-A88B-10D2B8F3E4B1}</UniqueIdentifier>
+      <UniqueIdentifier>{0A71644C-CF95-4249-8CA3-0204EEA599E0}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\Aidan\Public\GenerateMaterials.h">
+    <ClInclude Include="..\..\Source\Aidan\Public\AidanObject.h">
+      <Filter>Source\Aidan\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Aidan\Public\BinaryReader.h">
+      <Filter>Source\Aidan\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Aidan\Public\ConstructionManager.h">
       <Filter>Source\Aidan\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Aidan\Public\ProcLight.h">
       <Filter>Source\Aidan\Public</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Aidan\Public\Test.h">
+    <ClInclude Include="..\..\Source\Aidan\Public\ProcMesh.h">
+      <Filter>Source\Aidan\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Aidan\Public\Reader.h">
+      <Filter>Source\Aidan\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Aidan\Public\ReaderData.h">
       <Filter>Source\Aidan\Public</Filter>
     </ClInclude>
   </ItemGroup>

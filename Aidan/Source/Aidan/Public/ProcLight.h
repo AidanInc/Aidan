@@ -22,7 +22,6 @@ public:
 
 	UPROPERTY(VisibleAnywhere,BlueprintReadOnly)
 	class UPointLightComponent* procLight;
-	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FLinearColor lightColor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -31,7 +30,7 @@ public:
 	FVector position;
 
 	UFUNCTION()
-		void buildLight();
+		void buildLight(FVector lightPosition,FLinearColor genLightColor, float lightIntensity);
 
 	
 

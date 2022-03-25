@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Aidan/Private/ConstructionManager.h"
+#include "Aidan/Public/ConstructionManager.h"
 #ifdef _MSC_VER
 #pragma warning (push)
 #pragma warning (disable : 4883)
@@ -41,7 +41,7 @@ void EmptyLinkFunctionForGeneratedCodeConstructionManager() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AConstructionManager_Statics::Class_MetaDataParams[] = {
 		{ "IncludePath", "ConstructionManager.h" },
-		{ "ModuleRelativePath", "Private/ConstructionManager.h" },
+		{ "ModuleRelativePath", "Public/ConstructionManager.h" },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AConstructionManager_Statics::StaticCppClassTypeInfo = {
@@ -59,7 +59,7 @@ void EmptyLinkFunctionForGeneratedCodeConstructionManager() {}
 		0,
 		0,
 		0,
-		0x008000A4u,
+		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_AConstructionManager_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AConstructionManager_Statics::Class_MetaDataParams))
 	};
 	UClass* Z_Construct_UClass_AConstructionManager()
@@ -71,7 +71,7 @@ void EmptyLinkFunctionForGeneratedCodeConstructionManager() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AConstructionManager, 1463850788);
+	IMPLEMENT_CLASS(AConstructionManager, 4251984787);
 	template<> AIDAN_API UClass* StaticClass<AConstructionManager>()
 	{
 		return AConstructionManager::StaticClass();

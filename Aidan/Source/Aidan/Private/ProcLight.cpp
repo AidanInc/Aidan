@@ -7,7 +7,7 @@
 AProcLight::AProcLight()
 {
  	
-	procLight = CreateDefaultSubobject<UPointLightComponent>(TEXT("light")); // Creating the object
+	procLight = CreateDefaultSubobject<UPointLightComponent>(TEXT("light")); // Creating the object in the world
 	
 	RootComponent = procLight;
 	
@@ -17,12 +17,13 @@ AProcLight::AProcLight()
 void AProcLight::BeginPlay()
 {
 	Super::BeginPlay();
-	buildLight();
+	//buildLight( ); Test to make sure it works
 	
 	
 }
-void AProcLight::buildLight() {
-	lightColor.R = 0;
+void AProcLight::buildLight(FVector lightPosition, FLinearColor genlightColor, float lightIntensity) {
+	//Test parameters
+	/*lightColor.R = 0;
 	lightColor.B = 1;
 	lightColor.G = 0;
 	lightColor.A = 1;
@@ -32,10 +33,18 @@ void AProcLight::buildLight() {
 	position.Y = -250.0;
 	position.Z = 400.0;
 
+	
+	*/
+	//Setting the attributes of the light
+	lightColor = genlightColor;
+	intensity = lightIntensity;
+	position = lightPosition;
+
 	procLight->SetIntensity(intensity);
 	procLight->SetLightColor(lightColor);
 	procLight->SetWorldLocation(position);
 	procLight->SetVisibility(true);
+	
 	
 	
 }

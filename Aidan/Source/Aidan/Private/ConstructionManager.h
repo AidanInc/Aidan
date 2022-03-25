@@ -4,9 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "ConstructionManager.generated.h"
 #include "ProcMesh.h"
 #include "ProcLight.h"
+#include "ConstructionManager.generated.h"
+
 
 UCLASS()
 class AConstructionManager : public AActor
