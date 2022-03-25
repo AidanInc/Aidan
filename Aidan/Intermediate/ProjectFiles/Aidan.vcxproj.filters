@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Aidan.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{80442333-7F98-408E-98E0-3160D664DD24}</UniqueIdentifier>
+      <UniqueIdentifier>{F515DE6D-7C4F-4B5D-BA76-E2B2A4AA9A07}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Aidan.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{A872C4C5-3511-41C0-8D8A-83C3B43170FB}</UniqueIdentifier>
+      <UniqueIdentifier>{48911F7E-689D-4E0D-BEB4-AC6877A63DEA}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -24,7 +24,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Aidan">
-      <UniqueIdentifier>{970FA601-376D-4A78-9969-E48A65CC970D}</UniqueIdentifier>
+      <UniqueIdentifier>{4E999985-2010-42AF-80DE-0DE4A6F7576E}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Aidan\Aidan.Build.cs">
       <Filter>Source\Aidan</Filter>
@@ -42,7 +42,7 @@
       <Filter>Source\Aidan</Filter>
     </ClInclude>
     <Filter Include="Source\Aidan\Private">
-      <UniqueIdentifier>{D2205C8A-3B55-44D2-AC8B-29E956F9DFB0}</UniqueIdentifier>
+      <UniqueIdentifier>{57C8C647-DBDE-4188-9D99-D3EFE7E96AC7}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Aidan\Private\AidanObject.cpp">
       <Filter>Source\Aidan\Private</Filter>
@@ -65,8 +65,11 @@
     <ClCompile Include="..\..\Source\Aidan\Private\ReaderData.cpp">
       <Filter>Source\Aidan\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Aidan\Private\Test.cpp">
+      <Filter>Source\Aidan\Private</Filter>
+    </ClCompile>
     <Filter Include="Source\Aidan\Public">
-      <UniqueIdentifier>{F550FF06-3A59-456B-8FFF-E29047F54E18}</UniqueIdentifier>
+      <UniqueIdentifier>{89C19E03-29E0-47EA-95F5-77C8E10A7996}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Aidan\Public\AidanObject.h">
       <Filter>Source\Aidan\Public</Filter>
@@ -87,6 +90,9 @@
       <Filter>Source\Aidan\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Aidan\Public\ReaderData.h">
+      <Filter>Source\Aidan\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Aidan\Public\Test.h">
       <Filter>Source\Aidan\Public</Filter>
     </ClInclude>
   </ItemGroup>

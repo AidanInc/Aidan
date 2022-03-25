@@ -12,6 +12,10 @@ const unsigned char ASSET_TYPE_MESH = 4;
 Reader::Reader(std::string path) {
 	fs.open(path, std::ios::in | std::ios::binary | std::ios::beg);
 	if (!fs.is_open()) throw std::exception("File can't be found");
+	
+}
+Reader::Reader() {
+
 }
 
 AssetType Reader::peekNextAsset() {

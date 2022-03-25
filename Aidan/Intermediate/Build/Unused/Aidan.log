@@ -1,12 +1,13 @@
-﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan).
+﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone\Aidan).
   Building AidanEditor...
   Using Visual Studio 2019 14.29.30141 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.16299.0 SDK (C:\Program Files (x86)\Windows Kits\10).
   Building 4 actions with 8 processes...
-    [1/4] Reader.cpp
+    [1/4] ConstructionManager.cpp
+C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone\Aidan\Aidan\Source\Aidan\Private\ConstructionManager.cpp(214): warning C4996: 'CreatePackage': Use CreatePackage overload that does not take the first Outer parameter. Specifying non-null outers for UPackages is no longer supported. Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
     [2/4] UE4Editor-Aidan.lib
-       Creating library C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\UE4Editor-Aidan.lib and object C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\UE4Editor-Aidan.exp
+       Creating library C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\UE4Editor-Aidan.lib and object C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\UE4Editor-Aidan.exp
     [3/4] UE4Editor-Aidan.dll
-       Creating library C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\UE4Editor-Aidan.suppressed.lib and object C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Cstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\UE4Editor-Aidan.suppressed.exp
+       Creating library C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\UE4Editor-Aidan.suppressed.lib and object C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\UE4Editor-Aidan.suppressed.exp
     [4/4] AidanEditor.target
-  Total time in Parallel executor: 12.83 seconds
-  Total execution time: 13.58 seconds
+  Total time in Parallel executor: 18.61 seconds
+  Total execution time: 19.69 seconds

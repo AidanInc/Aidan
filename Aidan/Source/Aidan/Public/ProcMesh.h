@@ -5,11 +5,14 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "ProceduralMeshComponent.h"
+#include "KismetProceduralMeshLibrary.h"
 #include "ProcMesh.generated.h"
 
+
 UCLASS()
-class AIDAN_API AProcMesh : public AActor
+ class AIDAN_API AProcMesh : public AActor
 {
+	//Try using Custom Mesh component instead of Procedural mesh component
 	GENERATED_BODY()
 	TArray<FVector> Vertices;
 	TArray<int32> Triangles;
@@ -17,18 +20,20 @@ class AIDAN_API AProcMesh : public AActor
 	FString materialPath = "/Game/Materials/";
 	UPROPERTY()
 	UProceduralMeshComponent* ProcMesh;
+	TArray<FVector> normals;
+	TArray<FProcMeshTangent> tangents;
 	UMaterial* mat;
+	UMaterialInterface* Material;
 	
 public:	
 	// Sets default values for this actor's properties
-	AProcMesh();
-	void CreateMesh(TArray<FVector> readVerticies, TArray<int32> readTriangles, TArray<FVector2D> readUVs, FString materialName);
-	
+    AProcMesh();
+	void CreateMesh(TArray<FVector> readVerticies, TArray<int32> readTriangles, TArray<FVector2D> readUVs, FString materialName, int submeshCount);
+	//TArray<FVector4> calculateTangents(TArray<FVector> readVerticies, TArray<int32> readTriangles, TArray<FVector2D> readUVs);
+	//Vector calculateNormals(TArray<int32> readTriangles, int current_set);
 
 protected:
 	// Called when the game starts or when spawned
-	UPROPERTY(EditAnywhere)
-		UMaterialInterface* Material;
-
+	
 	virtual void BeginPlay() override;
 };

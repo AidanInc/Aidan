@@ -18,7 +18,6 @@ void EmptyLinkFunctionForGeneratedCodeProcMesh() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_Aidan();
 	PROCEDURALMESHCOMPONENT_API UClass* Z_Construct_UClass_UProceduralMeshComponent_NoRegister();
-	ENGINE_API UClass* Z_Construct_UClass_UMaterialInterface_NoRegister();
 // End Cross Module References
 	void AProcMesh::StaticRegisterNativesAProcMesh()
 	{
@@ -37,10 +36,6 @@ void EmptyLinkFunctionForGeneratedCodeProcMesh() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ProcMesh_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ProcMesh;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Material_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Material;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -62,18 +57,8 @@ void EmptyLinkFunctionForGeneratedCodeProcMesh() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProcMesh_Statics::NewProp_ProcMesh = { "ProcMesh", nullptr, (EPropertyFlags)0x0040000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProcMesh, ProcMesh), Z_Construct_UClass_UProceduralMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProcMesh_Statics::NewProp_ProcMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProcMesh_Statics::NewProp_ProcMesh_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProcMesh_Statics::NewProp_Material_MetaData[] = {
-		{ "Category", "ProcMesh" },
-		{ "Comment", "// Called when the game starts or when spawned\n" },
-		{ "ModuleRelativePath", "Public/ProcMesh.h" },
-		{ "ToolTip", "Called when the game starts or when spawned" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProcMesh_Statics::NewProp_Material = { "Material", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProcMesh, Material), Z_Construct_UClass_UMaterialInterface_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProcMesh_Statics::NewProp_Material_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProcMesh_Statics::NewProp_Material_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AProcMesh_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProcMesh_Statics::NewProp_ProcMesh,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProcMesh_Statics::NewProp_Material,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AProcMesh_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AProcMesh>::IsAbstract,
@@ -102,7 +87,7 @@ void EmptyLinkFunctionForGeneratedCodeProcMesh() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AProcMesh, 1053868613);
+	IMPLEMENT_CLASS(AProcMesh, 983547878);
 	template<> AIDAN_API UClass* StaticClass<AProcMesh>()
 	{
 		return AProcMesh::StaticClass();
