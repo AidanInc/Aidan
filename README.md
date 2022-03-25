@@ -1,6 +1,11 @@
-# Aidan Last Updated 03/13/2022
+# Aidan Last Updated 03/24/2022
 
 [The goal of this project](https://www.lewis.education/?cpsc=sp22-cpsc-49200-001&hide-nav=y#/activity/aidan)
+
+[Customer marketing flyer](https://witty-meadow-055b73d10.1.azurestaticapps.net/marketing-flyer/index.html)
+
+[Team’s customer-focused website](https://gamejolt.com/games/aidan-interactive-rendering/703091)
+
 
 [MVP](./MVP.md)
 
