@@ -95,3 +95,4 @@ Build/Android/res/*/*
 !Build/Android/res/*/*.png
 
 # End of https://www.toptal.com/developers/gitignore/api/unrealengine
+*.log
