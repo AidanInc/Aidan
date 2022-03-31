@@ -15,16 +15,25 @@ public class MeshData {
 	public List<SubmeshData> submeshes;
 }
 
-public class SubmeshData {
-	public SubmeshData() {
+public class SubmeshData
+{
+	public SubmeshData()
+	{
 		materialName = "";
 		tris = new List<int>();
 	}
 	public string materialName;
 	public List<int> tris;
-}
 
-public class MaterialData {
+	public override string ToString()
+	{
+		return "frist item in list tris: " + tris[0];
+	}
+
+}
+	
+
+	public class MaterialData {
 	public MaterialData() {
 		name = "";
 		isTransparent = false;
@@ -110,6 +119,13 @@ public class Vector2 {
 		x = X;
 		y = Y;
 	}
+
+	// added ovride tostring function
+	public override string ToString()
+	{
+
+		return " X:" + x + " Y:" + y ;
+	}
 }
 
 public class Vector3 {
@@ -121,4 +137,10 @@ public class Vector3 {
 		y = Y;
 		z = Z;
 	}
+		
+	public override string ToString() {
+
+		return " X:" + x + " Y:"+ y  + " Z:"+ z  ;
+	}
+
 }

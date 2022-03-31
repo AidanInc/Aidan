@@ -39,6 +39,8 @@ public class Reader {
 		return (next == MESH);
 	}
 
+
+	//  the funciton below most the pointer of when reaading the file//
     public MeshData NextMesh() { 
 		try {
 			MeshData meshData = new MeshData();
