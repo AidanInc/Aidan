@@ -25,11 +25,6 @@ public class SubmeshData
 	public string materialName;
 	public List<int> tris;
 
-	public override string ToString()
-	{
-		return "frist item in list tris: " + tris[0];
-	}
-
 }
 	
 
