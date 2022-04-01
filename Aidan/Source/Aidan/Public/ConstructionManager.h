@@ -28,7 +28,6 @@ class AIDAN_API AConstructionManager : public AActor
 	Aidan::AssetType currentAsset;
 	
 
-
 public:
 	// Sets default values for this pawn's properties
 	AConstructionManager();

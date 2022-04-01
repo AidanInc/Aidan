@@ -1,4 +1,4 @@
-// PCH for D:\Epic Games\UE_4.27\Engine\Source\Editor\UnrealEd\Public\UnrealEdSharedPCH.h
+// PCH for C:\Program Files\Epic Games\UE_4.27\Engine\Source\Editor\UnrealEd\Public\UnrealEdSharedPCH.h
 #define IS_PROGRAM 0
 #define UE_EDITOR 1
 #define ENABLE_PGO_PROFILE 0
@@ -289,4 +289,4 @@
 #define WITH_RECAST 1
 #define WITH_GAMEPLAY_DEBUGGER 1
 #define AIMODULE_API DLLIMPORT
-#include "D:/Epic Games/UE_4.27/Engine/Source/Editor/UnrealEd/Public/UnrealEdSharedPCH.h"
+#include "C:/Program Files/Epic Games/UE_4.27/Engine/Source/Editor/UnrealEd/Public/UnrealEdSharedPCH.h"

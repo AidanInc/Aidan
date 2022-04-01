@@ -27,11 +27,10 @@ static FORCEINLINE UMaterial* LoadMaterialFromPath(const FName& Path)
 }
 
 
-void AProcMesh::CreateMesh(TArray<FVector> readVerticies, TArray<int32> readTriangles, TArray<FVector2D> readUVs, FString materialName, int submeshCount)
+void AProcMesh::CreateMesh(TArray<FVector> readVerticies, TArray<FVector2D> readUVs, TArray<FString> MaterialNames, int num_submeshes, TArray<int32> readTriangles)
 {
-	int current_vert_set = 0;
-	int current_Triangle_set = 0;
-	int current_uv_set = 0;
+
+
 	/*for (int i = 0; i < mesh.verts.size(); i++) {
 
 		verticie.X = mesh.verts[i].x;
@@ -51,7 +50,7 @@ void AProcMesh::CreateMesh(TArray<FVector> readVerticies, TArray<int32> readTria
 		triangles.Add(submesh.tris[2]);
 	}*/
 	//Reading in verticies
-	for (int i = 0; i < readVerticies.Num(); i++) {
+	/*for (int i = 0; i < readVerticies.Num(); i++) {
 		Vertices.Add(readVerticies[i]);
 	}
 	/*
@@ -61,9 +60,9 @@ void AProcMesh::CreateMesh(TArray<FVector> readVerticies, TArray<int32> readTria
 	Vertices.Add(FVector(50, 0, -50));
 	*/
 	//Reading in Uvs
-	for (int i = 0; i < readUVs.Num(); i++) {
+	/*for (int i = 0; i < readUVs.Num(); i++) {
 		UVs.Add(readUVs[i]);
-	}
+	}*/
 
 	/*
 	UVs.Add(FVector2D(0, 0));
@@ -72,9 +71,9 @@ void AProcMesh::CreateMesh(TArray<FVector> readVerticies, TArray<int32> readTria
 	UVs.Add(FVector2D(1, 1));
 	*/
 	//Reading in Triangles
-	for (int i = 0; i < readTriangles.Num(); i++) {
+	/*for (int i = 0; i < readTriangles.Num(); i++) {
 		Triangles.Add(readTriangles[i]);
-	}
+	}*/
 	/*
 	//Triangle1
 	Triangles.Add(0);
@@ -87,16 +86,25 @@ void AProcMesh::CreateMesh(TArray<FVector> readVerticies, TArray<int32> readTria
 	Triangles.Add(3);
 	*/
 	//Creating the mesh object
-	
-	ProcMesh->CreateMeshSection(0, Vertices, Triangles, TArray<FVector>(), UVs, TArray<FColor>(), TArray<FProcMeshTangent>(), false);
-	
-	materialPath += materialName;
-	//mat = LoadMaterialFromPath(FName(*materialPath)); // Checking if the associated material exists
-	mat = nullptr;
-	if (mat!=nullptr)
-	{
-		ProcMesh->SetMaterial(0, mat);
+	//mat = nullptr;
+	ProcMesh->CreateMeshSection(0, readVerticies, readTriangles, TArray<FVector>(), readUVs, TArray<FColor>(), TArray<FProcMeshTangent>(), false);
+
+	for (int i = 0; i < num_submeshes; i++) {
+
+		materialPath += MaterialNames[i].TrimChar(' '); // Removing whiteSpace
+		//mat = LoadMaterialFromPath(FName(*materialPath)); // Checking if the associated material exists
+		//mat = nullptr;
+		if (mat != nullptr)
+		{
+			ProcMesh->SetMaterial(i, mat);
+		}
+		materialPath = baseMaterialPath;
 	}
+
+
+
+
+
 }
 /*TArray<FVector4> calculateTangents(TArray<FVector> readVerticies, TArray<int32> readTriangles, TArray<FVector2D> readUVs) {
 
@@ -156,7 +164,7 @@ void AProcMesh::CreateMesh(TArray<FVector> readVerticies, TArray<int32> readTria
 		tmp.Normalize();
 		tangents[a] = FVector4(tmp.X, tmp.Y, tmp.Z);
 
-		
+
 		tangents[a].W= (FVector::DotProduct(FVector::CrossProduct(n, t), tan2[a]) < 0.0f) ? -1.0f : 1.0f; // If it is less than 0 return -1 else return 1
 		current_set_of_triangles += 3;
 	}
@@ -173,12 +181,7 @@ void AProcMesh::CreateMesh(TArray<FVector> readVerticies, TArray<int32> readTria
 }*/
 
 
-// Called when the game starts or when spawned
-void AProcMesh::BeginPlay()
-{
-	Super::BeginPlay();
 
-//CreateMesh();
-}
+
 
 

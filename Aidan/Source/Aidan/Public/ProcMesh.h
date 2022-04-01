@@ -6,34 +6,37 @@
 #include "GameFramework/Actor.h"
 #include "ProceduralMeshComponent.h"
 #include "KismetProceduralMeshLibrary.h"
+#include "Algo/Reverse.h"
 #include "ProcMesh.generated.h"
 
 
+
 UCLASS()
- class AIDAN_API AProcMesh : public AActor
+class AIDAN_API AProcMesh : public AActor
 {
 	//Try using Custom Mesh component instead of Procedural mesh component
 	GENERATED_BODY()
-	TArray<FVector> Vertices;
+		TArray<FVector> Vertices;
 	TArray<int32> Triangles;
 	TArray<FVector2D>UVs;
 	FString materialPath = "/Game/Materials/";
+	FString baseMaterialPath = "/Game/Materials/";
 	UPROPERTY()
-	UProceduralMeshComponent* ProcMesh;
+		UProceduralMeshComponent* ProcMesh;
 	TArray<FVector> normals;
 	TArray<FProcMeshTangent> tangents;
 	UMaterial* mat;
 	UMaterialInterface* Material;
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
-    AProcMesh();
-	void CreateMesh(TArray<FVector> readVerticies, TArray<int32> readTriangles, TArray<FVector2D> readUVs, FString materialName, int submeshCount);
+	AProcMesh();
+	//void CreateMesh(TArray<FVector> readVerticies, TArray<int32> readTriangles, TArray<FVector2D> readUVs, FString materialName, int sectionIndex);
+	void CreateMesh(TArray<FVector> readVerticies, TArray<FVector2D> readUVs, TArray<FString> MaterialNames, int num_submeshes, TArray<int32> triangles);
 	//TArray<FVector4> calculateTangents(TArray<FVector> readVerticies, TArray<int32> readTriangles, TArray<FVector2D> readUVs);
 	//Vector calculateNormals(TArray<int32> readTriangles, int current_set);
 
 protected:
 	// Called when the game starts or when spawned
-	
-	virtual void BeginPlay() override;
+
 };
