@@ -1,3 +1,0 @@
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone 2\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\Definitions.Aidan.h
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone 2\Aidan\Aidan\Source\Aidan\Public\AidanObject.h
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone 2\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Inc\Aidan\AidanObject.generated.h
