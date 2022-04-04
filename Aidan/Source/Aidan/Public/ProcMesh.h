@@ -5,8 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "ProceduralMeshComponent.h"
-#include "KismetProceduralMeshLibrary.h"
-#include "Algo/Reverse.h"
 #include "ProcMesh.generated.h"
 
 

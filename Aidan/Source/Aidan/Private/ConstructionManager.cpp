@@ -2,7 +2,6 @@
 
 
 #include "ConstructionManager.h"
-#include "Misc/Paths.h"
 
 
 
@@ -83,7 +82,6 @@ void AConstructionManager::buildLight(Light light) {
     FVector pos = FVector(light.pos.x, light.pos.y, light.pos.z);
     FRotator rot = FRotator(0, 0, 0);
     AProcLight* currentLight = GetWorld()->SpawnActor<AProcLight>(AProcLight::StaticClass(), pos, rot, spawnParams);
-    //AProcLight* currentLight = NewObject<AProcLight>();
     FLinearColor color = FLinearColor(light.color.r, light.color.g, light.color.b, light.color.a);
 
     currentLight->buildLight(pos, color, light.intensity);
@@ -107,9 +105,6 @@ void AConstructionManager::buildMesh(Mesh mesh) {
     pos = FVector(0, 0, 0);
     rot = FRotator(0, 0, -90);
     AProcMesh* currentMesh = GetWorld()->SpawnActor<AProcMesh>(AProcMesh::StaticClass(), pos, rot, spawnParams);
-    currentMesh->SetActorLabel(mesh.name.c_str());
-    // Lets try merging this into 1 single procedural mesh instead.
-    //Could be a verticie issuse
     for (int i = 0; i < mesh.verts.size(); i++) {
 
         verticie.X = mesh.verts[i].x;
@@ -147,90 +142,7 @@ void AConstructionManager::buildMesh(Mesh mesh) {
 
 }
 void AConstructionManager::buildMaterial(Material matdata) {
-    //Code was obtained from: https://isaratech.com/ue4-programmatically-create-a-new-material-and-inner-nodes/
-    UE_LOG(LogTemp, Warning, TEXT("generating %s "), matdata.name.c_str());
-
-    // Determining Shaders from material properties
-    //                           Color | TextureMap | Transparent | Reflective
-    // Transparent Reflective -----x-------------------------x----------x------
-    // Transparent Colored --------x-------------------------x-----------------
-    // Diffuse Textured ----------------------x--------------------------------
-    // Diffuse Colored ------------x-------------------------------------------
-    // Default ----------------------------------------------------------------
-    //
-    // a physical parrallel of our process: Given a childs block of unknown shape, we try to push it though
-    // increasingly generic holes. So we would try the Small 10 pointed star hole (transparenty specular) before the
-    // large round hole (simple diffuse color).  We push it through (use the shader of) the first hole it will fit.
-    // The chart above is sorted from most specialized on top, to most generic on bottom. This is the order we will
-    // use to test shaders.
-    // Our job here is to create a Unity Material for the material handed from us.
-    // the 2 is appended to AliDocument is because "AliDocument" is the namespace name.
-
-    //Creating the material asset
-    FString MaterialName = matdata.name.c_str(); // Swap this out for the name of the material we are reading in
-    FString PackageName = "/Game/Materials/"; // This is where we will store the materials (root directory is /Game/)
-    PackageName += MaterialName.TrimChar(' ');
-    //Trying to load the material
-    if (LoadMaterialFromPath(FName(*PackageName)) != nullptr) {
-        UE_LOG(LogTemp, Warning, TEXT("This Material Already exists"));
-        return;
-    }
-    UPackage* Package = CreatePackage(*PackageName);
-    auto MaterialFactory = NewObject<UMaterialFactoryNew>();
-    UMaterial* UnrealMaterial = (UMaterial*)MaterialFactory->FactoryCreateNew(UMaterial::StaticClass(), Package, matdata.name.c_str(), RF_Standalone | RF_Public, NULL, GWarn);
-    FAssetRegistryModule::AssetCreated(UnrealMaterial);
-    Package->FullyLoad();
-    Package->SetDirtyFlag(true);
-
-    //The material will update itself if necessary
-    UnrealMaterial->PreEditChange(NULL);
-    UnrealMaterial->PostEditChange();
-    // make sure that any static meshes, etc using this material will stop using the FMaterialResource of the original
-    // material, and will use the new FMaterialResource created when we make a new UMaterial in place
-
-    FGlobalComponentReregisterContext RecreateComponents;
-
-    //Setting the opacity of the material
-    UMaterialExpressionConstant* OpacityExpression = NewObject<UMaterialExpressionConstant>(UnrealMaterial);
-    if (matdata.transparency) {
-        OpacityExpression->R = 0;
-
-    }
-    else {
-        OpacityExpression->R = 1;
-
-    }
-
-    UnrealMaterial->Expressions.Add(OpacityExpression);
-    UnrealMaterial->Opacity.Expression = OpacityExpression;
-
-
-    //Setting the Roughness / reflectiveness of the material 
-    UMaterialExpressionConstant* RoughExpression = NewObject<UMaterialExpressionConstant>(UnrealMaterial);
-    RoughExpression->R = 1 - matdata.reflectivity;// Roughness and reflectiveness are inversly related
-    UnrealMaterial->Expressions.Add(RoughExpression);
-    UnrealMaterial->Roughness.Expression = RoughExpression;
-
-    //Setting the base color of the material
-    UMaterialExpressionConstant3Vector* BaseColorExpression = NewObject<UMaterialExpressionConstant3Vector>(UnrealMaterial);
-    UMaterialExpressionTextureSample* TextureExpression = NewObject<UMaterialExpressionTextureSample>(UnrealMaterial);
-
-
-    FLinearColor baseColor;
-    auto* colorPtr = &baseColor;
-    colorPtr->A = matdata.color.a;
-    colorPtr->B = matdata.color.b;
-    colorPtr->G = matdata.color.g;
-    colorPtr->R = matdata.color.r;
-
-    BaseColorExpression->Constant = baseColor;
-    UnrealMaterial->Expressions.Add(BaseColorExpression);
-    UnrealMaterial->BaseColor.Expression = BaseColorExpression;
-    //Come back for tilling / shader stuff
-
-    /* UMaterialExpressionMultiply* Multiply = NewObject<UMaterialExpressionMultiply>(UnrealMaterial);
-     UnrealMaterial->Expressions.Add(Multiply);*/
-
+    
 
 }
 

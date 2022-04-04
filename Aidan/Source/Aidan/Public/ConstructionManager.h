@@ -3,19 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Pawn.h"
 #include <ProcLight.h>
 #include "ProcMesh.h"
 #include "Reader.h"
-#include <Runtime/Engine/Classes/Materials/MaterialExpressionConstant3Vector.h>
-#include <Editor/UnrealEd/Classes/Factories/MaterialFactoryNew.h>
-#include <Runtime/AssetRegistry/Public/AssetRegistry/AssetRegistryModule.h>
-#include <Runtime/Engine/Classes/Materials/MaterialExpressionConstant.h>
-#include "Algo/Reverse.h"
-
-
-
-
 #include "ConstructionManager.generated.h"
 
 UCLASS()

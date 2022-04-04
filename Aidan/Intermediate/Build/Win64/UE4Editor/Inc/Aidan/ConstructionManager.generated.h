@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define AIDAN_ConstructionManager_generated_h
 
-#define Aidan_Source_Aidan_Public_ConstructionManager_h_24_SPARSE_DATA
-#define Aidan_Source_Aidan_Public_ConstructionManager_h_24_RPC_WRAPPERS
-#define Aidan_Source_Aidan_Public_ConstructionManager_h_24_RPC_WRAPPERS_NO_PURE_DECLS
-#define Aidan_Source_Aidan_Public_ConstructionManager_h_24_INCLASS_NO_PURE_DECLS \
+#define Aidan_Source_Aidan_Public_ConstructionManager_h_14_SPARSE_DATA
+#define Aidan_Source_Aidan_Public_ConstructionManager_h_14_RPC_WRAPPERS
+#define Aidan_Source_Aidan_Public_ConstructionManager_h_14_RPC_WRAPPERS_NO_PURE_DECLS
+#define Aidan_Source_Aidan_Public_ConstructionManager_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAConstructionManager(); \
 	friend struct Z_Construct_UClass_AConstructionManager_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(AConstructionManager)
 
 
-#define Aidan_Source_Aidan_Public_ConstructionManager_h_24_INCLASS \
+#define Aidan_Source_Aidan_Public_ConstructionManager_h_14_INCLASS \
 private: \
 	static void StaticRegisterNativesAConstructionManager(); \
 	friend struct Z_Construct_UClass_AConstructionManager_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(AConstructionManager)
 
 
-#define Aidan_Source_Aidan_Public_ConstructionManager_h_24_STANDARD_CONSTRUCTORS \
+#define Aidan_Source_Aidan_Public_ConstructionManager_h_14_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AConstructionManager(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AConstructionManager) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define Aidan_Source_Aidan_Public_ConstructionManager_h_24_ENHANCED_CONSTRUCTORS \
+#define Aidan_Source_Aidan_Public_ConstructionManager_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AConstructionManager(AConstructionManager&&); \
@@ -58,28 +58,28 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AConstructionManager)
 
 
-#define Aidan_Source_Aidan_Public_ConstructionManager_h_24_PRIVATE_PROPERTY_OFFSET
-#define Aidan_Source_Aidan_Public_ConstructionManager_h_21_PROLOG
-#define Aidan_Source_Aidan_Public_ConstructionManager_h_24_GENERATED_BODY_LEGACY \
+#define Aidan_Source_Aidan_Public_ConstructionManager_h_14_PRIVATE_PROPERTY_OFFSET
+#define Aidan_Source_Aidan_Public_ConstructionManager_h_11_PROLOG
+#define Aidan_Source_Aidan_Public_ConstructionManager_h_14_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Aidan_Source_Aidan_Public_ConstructionManager_h_24_PRIVATE_PROPERTY_OFFSET \
-	Aidan_Source_Aidan_Public_ConstructionManager_h_24_SPARSE_DATA \
-	Aidan_Source_Aidan_Public_ConstructionManager_h_24_RPC_WRAPPERS \
-	Aidan_Source_Aidan_Public_ConstructionManager_h_24_INCLASS \
-	Aidan_Source_Aidan_Public_ConstructionManager_h_24_STANDARD_CONSTRUCTORS \
+	Aidan_Source_Aidan_Public_ConstructionManager_h_14_PRIVATE_PROPERTY_OFFSET \
+	Aidan_Source_Aidan_Public_ConstructionManager_h_14_SPARSE_DATA \
+	Aidan_Source_Aidan_Public_ConstructionManager_h_14_RPC_WRAPPERS \
+	Aidan_Source_Aidan_Public_ConstructionManager_h_14_INCLASS \
+	Aidan_Source_Aidan_Public_ConstructionManager_h_14_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Aidan_Source_Aidan_Public_ConstructionManager_h_24_GENERATED_BODY \
+#define Aidan_Source_Aidan_Public_ConstructionManager_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Aidan_Source_Aidan_Public_ConstructionManager_h_24_PRIVATE_PROPERTY_OFFSET \
-	Aidan_Source_Aidan_Public_ConstructionManager_h_24_SPARSE_DATA \
-	Aidan_Source_Aidan_Public_ConstructionManager_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
-	Aidan_Source_Aidan_Public_ConstructionManager_h_24_INCLASS_NO_PURE_DECLS \
-	Aidan_Source_Aidan_Public_ConstructionManager_h_24_ENHANCED_CONSTRUCTORS \
+	Aidan_Source_Aidan_Public_ConstructionManager_h_14_PRIVATE_PROPERTY_OFFSET \
+	Aidan_Source_Aidan_Public_ConstructionManager_h_14_SPARSE_DATA \
+	Aidan_Source_Aidan_Public_ConstructionManager_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	Aidan_Source_Aidan_Public_ConstructionManager_h_14_INCLASS_NO_PURE_DECLS \
+	Aidan_Source_Aidan_Public_ConstructionManager_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

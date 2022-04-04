@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "Aidan",
-			"Path": "C:\\Users\\bryan\\Documents\\GitHub\\Aidan\\Aidan\\Source\\Aidan.Target.cs",
+			"Path": "C:\\Users\\malik\\OneDrive\\Desktop\\Software Engineering Capstone\\Capstone 2\\Aidan\\Aidan\\Source\\Aidan.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "AidanEditor",
-			"Path": "C:\\Users\\bryan\\Documents\\GitHub\\Aidan\\Aidan\\Source\\AidanEditor.Target.cs",
+			"Path": "C:\\Users\\malik\\OneDrive\\Desktop\\Software Engineering Capstone\\Capstone 2\\Aidan\\Aidan\\Source\\AidanEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]

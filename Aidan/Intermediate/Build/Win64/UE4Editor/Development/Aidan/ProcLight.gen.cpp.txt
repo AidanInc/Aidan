@@ -1,7 +1,7 @@
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\Definitions.Aidan.h
+C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone 2\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\Definitions.Aidan.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone\Aidan\Aidan\Source\Aidan/Public/ProcLight.h
+C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone 2\Aidan\Aidan\Source\Aidan/Public/ProcLight.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/PointLightComponent.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/LocalLightComponent.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Components/LightComponent.h
@@ -10,4 +10,4 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\In
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\LightComponent.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\LocalLightComponent.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PointLightComponent.generated.h
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Inc\Aidan\ProcLight.generated.h
+C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone 2\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Inc\Aidan\ProcLight.generated.h

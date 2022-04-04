@@ -1,5 +1,5 @@
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\Definitions.Aidan.h
-C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone\Aidan\Aidan\Source\Aidan\Public\ReaderData.h
+C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone 2\Aidan\Aidan\Intermediate\Build\Win64\UE4Editor\Development\Aidan\Definitions.Aidan.h
+C:\Users\malik\OneDrive\Desktop\Software Engineering Capstone\Capstone 2\Aidan\Aidan\Source\Aidan\Public\ReaderData.h
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\iostream
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\istream
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\INCLUDE\ostream

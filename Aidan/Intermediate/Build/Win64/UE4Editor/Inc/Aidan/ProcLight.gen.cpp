@@ -19,7 +19,6 @@ void EmptyLinkFunctionForGeneratedCodeProcLight() {}
 	UPackage* Z_Construct_UPackage__Script_Aidan();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FLinearColor();
-	ENGINE_API UClass* Z_Construct_UClass_UPointLightComponent_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AProcLight::execbuildLight)
 	{
@@ -90,23 +89,6 @@ void EmptyLinkFunctionForGeneratedCodeProcLight() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_procLight_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_procLight;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_lightColor_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FStructPropertyParams NewProp_lightColor;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_intensity_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_intensity;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_position_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FStructPropertyParams NewProp_position;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -123,41 +105,6 @@ void EmptyLinkFunctionForGeneratedCodeProcLight() {}
 		{ "ModuleRelativePath", "Public/ProcLight.h" },
 	};
 #endif
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProcLight_Statics::NewProp_procLight_MetaData[] = {
-		{ "Category", "ProcLight" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Public/ProcLight.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AProcLight_Statics::NewProp_procLight = { "procLight", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProcLight, procLight), Z_Construct_UClass_UPointLightComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AProcLight_Statics::NewProp_procLight_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProcLight_Statics::NewProp_procLight_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProcLight_Statics::NewProp_lightColor_MetaData[] = {
-		{ "Category", "ProcLight" },
-		{ "ModuleRelativePath", "Public/ProcLight.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AProcLight_Statics::NewProp_lightColor = { "lightColor", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProcLight, lightColor), Z_Construct_UScriptStruct_FLinearColor, METADATA_PARAMS(Z_Construct_UClass_AProcLight_Statics::NewProp_lightColor_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProcLight_Statics::NewProp_lightColor_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProcLight_Statics::NewProp_intensity_MetaData[] = {
-		{ "Category", "ProcLight" },
-		{ "ModuleRelativePath", "Public/ProcLight.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AProcLight_Statics::NewProp_intensity = { "intensity", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProcLight, intensity), METADATA_PARAMS(Z_Construct_UClass_AProcLight_Statics::NewProp_intensity_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProcLight_Statics::NewProp_intensity_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AProcLight_Statics::NewProp_position_MetaData[] = {
-		{ "Category", "ProcLight" },
-		{ "ModuleRelativePath", "Public/ProcLight.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_AProcLight_Statics::NewProp_position = { "position", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AProcLight, position), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_AProcLight_Statics::NewProp_position_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AProcLight_Statics::NewProp_position_MetaData)) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AProcLight_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProcLight_Statics::NewProp_procLight,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProcLight_Statics::NewProp_lightColor,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProcLight_Statics::NewProp_intensity,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AProcLight_Statics::NewProp_position,
-	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AProcLight_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AProcLight>::IsAbstract,
 	};
@@ -167,11 +114,11 @@ void EmptyLinkFunctionForGeneratedCodeProcLight() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		FuncInfo,
-		Z_Construct_UClass_AProcLight_Statics::PropPointers,
+		nullptr,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
-		UE_ARRAY_COUNT(Z_Construct_UClass_AProcLight_Statics::PropPointers),
+		0,
 		0,
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_AProcLight_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AProcLight_Statics::Class_MetaDataParams))
@@ -185,7 +132,7 @@ void EmptyLinkFunctionForGeneratedCodeProcLight() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AProcLight, 694090421);
+	IMPLEMENT_CLASS(AProcLight, 3710325434);
 	template<> AIDAN_API UClass* StaticClass<AProcLight>()
 	{
 		return AProcLight::StaticClass();
