@@ -95,3 +95,13 @@ Build/Android/res/*/*
 !Build/Android/res/*/*.png
 
 # End of https://www.toptal.com/developers/gitignore/api/unrealengine
+
+#dir/files no need to save - can be builded and generated  #
+Aidan/Binaries/*
+Aidan/Intermediate/*
+Aidan/Saved/*
+Aidan/ali/*
+Aidan/DerivedDataCache/*
+Aidan/Aidan.sln
+
+
