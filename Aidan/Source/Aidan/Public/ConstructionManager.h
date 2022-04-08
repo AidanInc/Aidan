@@ -6,6 +6,9 @@
 #include <ProcLight.h>
 #include "ProcMesh.h"
 #include "Reader.h"
+#include <Runtime/Engine/Classes/Materials/MaterialExpressionMultiply.h>
+#include <Runtime/Engine/Classes/Materials/MaterialExpressionConstant.h>
+#include <Runtime/Engine/Classes/Materials/MaterialExpressionConstant3Vector.h>
 #include "ConstructionManager.generated.h"
 
 UCLASS()
@@ -16,6 +19,7 @@ class AIDAN_API AConstructionManager : public AActor
 	TArray<AProcMesh*> genMeshes;
 	Aidan::Reader binaryReader;
 	Aidan::AssetType currentAsset;
+	TMap<FString, UMaterial*> genMats;
 	
 
 public:
@@ -25,7 +29,6 @@ public:
 	void buildLight(Light light); //Insert Data in the format: FVector4 Color (R,G,B,A), float lightIntensity,FVector lightPosition
 	void buildMesh(Mesh mesh); // Insert Data in the format: TArray<FVector> Verticies, TArray<int32> Triangles, TArray<FVector2D> UVs, FString materialName
 	void beginReading();
-	bool stopMeshBuild;
 
 protected:
 	// Called when the game starts or when spawned

@@ -3,6 +3,7 @@
 
 #include "ProcMesh.h"
 
+
 // Sets default values
 AProcMesh::AProcMesh()
 {
@@ -11,99 +12,23 @@ AProcMesh::AProcMesh()
 }
 
 
-template <typename ObjClass>
-static FORCEINLINE ObjClass* LoadObjFromPath(const FName& Path)
-{
-	if (Path == NAME_None) return nullptr;
-
-	return Cast<ObjClass>(StaticLoadObject(ObjClass::StaticClass(), nullptr, *Path.ToString()));
-}
-
-static FORCEINLINE UMaterial* LoadMaterialFromPath(const FName& Path)
-{
-	if (Path == NAME_None) return nullptr;
-
-	return LoadObjFromPath<UMaterial>(Path);
-}
-
-
-void AProcMesh::CreateMesh(TArray<FVector> readVerticies, TArray<FVector2D> readUVs, TArray<FString> MaterialNames, int num_submeshes, TArray<int32> readTriangles)
+void AProcMesh::CreateMesh(TArray<FVector> readVerticies, TArray<FVector2D> readUVs, TArray<FString> MaterialNames, int num_submeshes, TArray<int32> readTriangles, TMap<FString, UMaterial*> allMats)
 {
 
-
-	/*for (int i = 0; i < mesh.verts.size(); i++) {
-
-		verticie.X = mesh.verts[i].x;
-		verticie.Y = mesh.verts[i].y;
-		verticie.Z = mesh.verts[i].z;
-		allVerticies.Add(verticie);
-	}
-	for (int i = 0; i < mesh.uverts.size(); i++) {
-		uv.X = mesh.uverts[i].x;
-		uv.Y = mesh.uverts[i].y;
-		Uvs.Add(uv);
-	}
-	for (int i = 0; i < mesh.submeshes.size(); i++) { // The triangles are in reverse ordrer
-		auto submesh = mesh.submeshes[i];
-		triangles.Add(submesh.tris[0]);
-		triangles.Add(submesh.tris[1]);
-		triangles.Add(submesh.tris[2]);
-	}*/
-	//Reading in verticies
-	/*for (int i = 0; i < readVerticies.Num(); i++) {
-		Vertices.Add(readVerticies[i]);
-	}
-	/*
-	Vertices.Add(FVector(-50, 0, 50));
-	Vertices.Add(FVector(-50, 0, -50));
-	Vertices.Add(FVector(50, 0, 50));
-	Vertices.Add(FVector(50, 0, -50));
-	*/
-	//Reading in Uvs
-	/*for (int i = 0; i < readUVs.Num(); i++) {
-		UVs.Add(readUVs[i]);
-	}*/
-
-	/*
-	UVs.Add(FVector2D(0, 0));
-	UVs.Add(FVector2D(0, 1));
-	UVs.Add(FVector2D(1, 0));
-	UVs.Add(FVector2D(1, 1));
-	*/
-	//Reading in Triangles
-	/*for (int i = 0; i < readTriangles.Num(); i++) {
-		Triangles.Add(readTriangles[i]);
-	}*/
-	/*
-	//Triangle1
-	Triangles.Add(0);
-	Triangles.Add(1);
-	Triangles.Add(2);
-
-	//Triangle2
-	Triangles.Add(2);
-	Triangles.Add(1);
-	Triangles.Add(3);
-	*/
-	//Creating the mesh object
-	//mat = nullptr;
 	ProcMesh->CreateMeshSection(0, readVerticies, readTriangles, TArray<FVector>(), readUVs, TArray<FColor>(), TArray<FProcMeshTangent>(), false);
 
 	for (int i = 0; i < num_submeshes; i++) {
-
-		materialPath += MaterialNames[i].TrimChar(' '); // Removing whiteSpace
-		//mat = LoadMaterialFromPath(FName(*materialPath)); // Checking if the associated material exists
-		//mat = nullptr;
-		if (mat != nullptr)
+		currentMat = allMats.FindRef(MaterialNames[i]);
+		if (currentMat != nullptr)
 		{
-			ProcMesh->SetMaterial(i, mat);
+			ProcMesh->SetMaterial(0, currentMat);
+
+		}
+		else {
+			//Uh Oh
 		}
 		materialPath = baseMaterialPath;
 	}
-
-
-
-
 
 }
 /*TArray<FVector4> calculateTangents(TArray<FVector> readVerticies, TArray<int32> readTriangles, TArray<FVector2D> readUVs) {

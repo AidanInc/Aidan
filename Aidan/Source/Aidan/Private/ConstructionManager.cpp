@@ -12,7 +12,6 @@ AConstructionManager::AConstructionManager()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
    
-   stopMeshBuild = false;
 
 }
 
@@ -57,11 +56,7 @@ void AConstructionManager::beginReading() {
         }
         else if (currentAsset == Aidan::AssetType::MESH) {
             auto mesh = binaryReader.readMesh();
-           
                 buildMesh(mesh);
-                
-            
-
         }
         
         else if (currentAsset == Aidan::AssetType::LIGHT) {
@@ -134,15 +129,86 @@ void AConstructionManager::buildMesh(Mesh mesh) {
 
 
     }
-    currentMesh->CreateMesh(allVerticies, Uvs, materialNames, num_submeshes, triangle);// Insert Data into here
+    currentMesh->CreateMesh(allVerticies, Uvs, materialNames, num_submeshes, triangle, genMats);// Insert Data into here
     genMeshes.Add(currentMesh);
-
-    //Need to run create mesh for every submesh rather than every mesh. For every submesh it is at the same position, verticies and Uvs as the main mesh, but has different tris and materials / textures.
 
 
 }
 void AConstructionManager::buildMaterial(Material matdata) {
-    
+    //Code was obtained from: https://isaratech.com/ue4-programmatically-create-a-new-material-and-inner-nodes/
+    UE_LOG(LogTemp, Warning, TEXT("generating %s "), matdata.name.c_str());
+
+    // Determining Shaders from material properties
+    //                           Color | TextureMap | Transparent | Reflective
+    // Transparent Reflective -----x-------------------------x----------x------
+    // Transparent Colored --------x-------------------------x-----------------
+    // Diffuse Textured ----------------------x--------------------------------
+    // Diffuse Colored ------------x-------------------------------------------
+    // Default ----------------------------------------------------------------
+    //
+    // a physical parrallel of our process: Given a childs block of unknown shape, we try to push it though
+    // increasingly generic holes. So we would try the Small 10 pointed star hole (transparenty specular) before the
+    // large round hole (simple diffuse color).  We push it through (use the shader of) the first hole it will fit.
+    // The chart above is sorted from most specialized on top, to most generic on bottom. This is the order we will
+    // use to test shaders.
+    // Our job here is to create a Unity Material for the material handed from us.
+    // the 2 is appended to AliDocument is because "AliDocument" is the namespace name.
+
+    //Creating the material asset
+    FString MaterialName = matdata.name.c_str(); // Swap this out for the name of the material we are reading in
+
+    UMaterial* genMat = NewObject<UMaterial>();
+
+
+    // FGlobalComponentReregisterContext RecreateComponents;
+
+     //Setting the opacity of the material
+    UMaterialExpressionConstant* OpacityExpression = NewObject<UMaterialExpressionConstant>(genMat);
+    if (matdata.transparency) {
+        OpacityExpression->R = 0;
+    }
+    else {
+        OpacityExpression->R = 1;
+
+    }
+
+    genMat->Expressions.Add(OpacityExpression);
+    genMat->Opacity.Expression = OpacityExpression;
+
+
+    //Setting the Roughness / reflectiveness of the material 
+    UMaterialExpressionConstant* RoughExpression = NewObject<UMaterialExpressionConstant>(genMat);
+    RoughExpression->R = 1 - matdata.reflectivity;// Roughness and reflectiveness are inversly related
+    genMat->Expressions.Add(RoughExpression);
+    genMat->Roughness.Expression = RoughExpression;
+
+    //Setting the base color of the material
+    UMaterialExpressionConstant3Vector* BaseColorExpression = NewObject<UMaterialExpressionConstant3Vector>(genMat);
+    UMaterialExpressionTextureSample* TextureExpression = NewObject<UMaterialExpressionTextureSample>(genMat);
+
+
+    FLinearColor baseColor;
+    auto* colorPtr = &baseColor;
+    colorPtr->A = matdata.color.a;
+    colorPtr->B = matdata.color.b;
+    colorPtr->G = matdata.color.g;
+    colorPtr->R = matdata.color.r;
+
+    BaseColorExpression->Constant = baseColor;
+    genMat->Expressions.Add(BaseColorExpression);
+    genMat->BaseColor.Expression = BaseColorExpression;
+    //Come back for tilling / shader stuff
+    // 
+
+      //The material will update itself if necessary
+    genMat->PreEditChange(NULL);
+    genMat->PostEditChange();
+    // make sure that any static meshes, etc using this material will stop using the FMaterialResource of the original
+    // material, and will use the new FMaterialResource created when we make a new UMaterial in place
+
+    // UMaterialExpressionMultiply* Multiply = NewObject<UMaterialExpressionMultiply>(genMat);
+     //genMat->Expressions.Add(Multiply);
+    genMats.Add(MaterialName, genMat);
 
 }
 
