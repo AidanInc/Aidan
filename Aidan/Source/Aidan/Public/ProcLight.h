@@ -19,14 +19,9 @@ class AIDAN_API AProcLight : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AProcLight();
-
-	UPROPERTY(VisibleAnywhere,BlueprintReadOnly)
 	class UPointLightComponent* procLight;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FLinearColor lightColor;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float intensity;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector position;
 
 	UFUNCTION()
