@@ -12,17 +12,15 @@ AProcMesh::AProcMesh()
 }
 
 
-void AProcMesh::CreateMesh(TArray<FVector> readVerticies, TArray<FVector2D> readUVs, TArray<FString> MaterialNames, int num_submeshes, TArray<int32> readTriangles, TMap<FString, UMaterial*> allMats)
+void AProcMesh::CreateMesh(TArray<FVector> readVerticies, TArray<FVector2D> readUVs, TArray<FString> MaterialNames, int num_submeshes, TArray<TArray<int32>> allTriangles, TMap<FString, UMaterial*> allMats)
 {
 
-	ProcMesh->CreateMeshSection(0, readVerticies, readTriangles, TArray<FVector>(), readUVs, TArray<FColor>(), TArray<FProcMeshTangent>(), false);
-
 	for (int i = 0; i < num_submeshes; i++) {
+		ProcMesh->CreateMeshSection(i, readVerticies, allTriangles[i], TArray<FVector>(), readUVs, TArray<FColor>(), TArray<FProcMeshTangent>(), false);
 		currentMat = allMats.FindRef(MaterialNames[i]);
 		if (currentMat != nullptr)
 		{
-			ProcMesh->SetMaterial(0, currentMat);
-
+			ProcMesh->SetMaterial(i, currentMat);
 		}
 		else {
 			//Uh Oh
