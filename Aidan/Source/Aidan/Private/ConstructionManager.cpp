@@ -92,7 +92,7 @@ void AConstructionManager::buildMesh(Mesh mesh) {
     FVector2D uv;
     TArray<FVector2D> Uvs;
     TArray<int32> triangle;
-    TArray<FVector> allTriangles;
+    TArray<TArray<int32>> allTriangles;
     FString MaterialName;
     int num_submeshes = 0;
     TArray<TArray<int32>> tris_per_submesh;
@@ -100,8 +100,11 @@ void AConstructionManager::buildMesh(Mesh mesh) {
     pos = FVector(0, 0, 0);
     rot = FRotator(0, 0, -90);
     AProcMesh* currentMesh = GetWorld()->SpawnActor<AProcMesh>(AProcMesh::StaticClass(), pos, rot, spawnParams);
+    currentMesh->SetActorLabel(mesh.name.c_str());
+    // Lets try merging this into 1 single procedural mesh instead.
+    //Could be a verticie issuse
     for (int i = 0; i < mesh.verts.size(); i++) {
-
+        //Mention how vertices that are really close to each other vary in value (causing the warping)
         verticie.X = mesh.verts[i].x;
         verticie.Y = mesh.verts[i].y;
         verticie.Z = mesh.verts[i].z;
@@ -121,15 +124,19 @@ void AConstructionManager::buildMesh(Mesh mesh) {
         for (int k = 0; k < currentSubmesh.tris.size(); k++) {
 
             triangle.Add(mesh.submeshes[i].tris[k]);
+
         }
 
+        allTriangles.Add(triangle);
+        triangle.Empty();
         materialNames.Add(currentSubmesh.materialName.c_str());
         //tris_per_submesh.Add(triangle);
 
-
-
     }
-    currentMesh->CreateMesh(allVerticies, Uvs, materialNames, num_submeshes, triangle, genMats);// Insert Data into here
+    if (allTriangles.Num() <= 3) {
+        //hi
+    }
+    currentMesh->CreateMesh(allVerticies, Uvs, materialNames, num_submeshes, allTriangles, genMats);// Insert Data into here
     genMeshes.Add(currentMesh);
 
 
@@ -158,7 +165,8 @@ void AConstructionManager::buildMaterial(Material matdata) {
     FString MaterialName = matdata.name.c_str(); // Swap this out for the name of the material we are reading in
 
     UMaterial* genMat = NewObject<UMaterial>();
-
+    matdata.textureMap.data;
+    matdata.textureMap.extension;
 
     // FGlobalComponentReregisterContext RecreateComponents;
 
@@ -186,7 +194,6 @@ void AConstructionManager::buildMaterial(Material matdata) {
     UMaterialExpressionConstant3Vector* BaseColorExpression = NewObject<UMaterialExpressionConstant3Vector>(genMat);
     UMaterialExpressionTextureSample* TextureExpression = NewObject<UMaterialExpressionTextureSample>(genMat);
 
-
     FLinearColor baseColor;
     auto* colorPtr = &baseColor;
     colorPtr->A = matdata.color.a;
@@ -205,10 +212,54 @@ void AConstructionManager::buildMaterial(Material matdata) {
     genMat->PostEditChange();
     // make sure that any static meshes, etc using this material will stop using the FMaterialResource of the original
     // material, and will use the new FMaterialResource created when we make a new UMaterial in place
+    UMaterialExpressionAppendVector* Append = NewObject<UMaterialExpressionAppendVector>(genMat);
+    genMat->Expressions.Add(Append);
+    UMaterialExpressionScalarParameter* xTill = NewObject<UMaterialExpressionScalarParameter>(genMat);
+    UMaterialExpressionScalarParameter* yTill = NewObject<UMaterialExpressionScalarParameter>(genMat);
+    xTill->ParameterName = "xTilling";
+    xTill->DefaultValue = matdata.textureMap.xTiling;
+    yTill->ParameterName = "yTilling";
+    yTill->DefaultValue = matdata.textureMap.yTiling;
+
+    Append->A.Expression = xTill;
+    Append->B.Expression = yTill;
+
+    std::string baseTexturePath = "materials/textures/";
+    std::string baseTexturePathstr = baseTexturePath + matdata.name + matdata.textureMap.extension;
+    FString TexturePath = (baseTexturePathstr).c_str();
+    FString TextureDir = FPaths::ProjectDir().Append(TexturePath);
+    std::string path(TCHAR_TO_UTF8(*TextureDir));
+    UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *TextureDir);
+    // FStringAssetReference AssetPath(TextureDir);
+    std::ofstream outfileTexture(path, std::ios::out | std::ios::binary);
+    outfileTexture.write(&matdata.textureMap.data[0], matdata.textureMap.data.size());
+
+    std::string baseNormalMapPath = "materials/normalMaps/";
+    std::string baseNormalMapPathstr = baseNormalMapPath + matdata.name + matdata.normalMap.extension;
+    FString NormalPath = baseNormalMapPathstr.c_str();
+    FString NormalDir = FPaths::ProjectDir().Append(NormalPath);
+
+    std::string path2(TCHAR_TO_UTF8(*NormalDir));
+
+    UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *NormalDir);
+
+    std::ofstream outfileNormal(path2, std::ios::out | std::ios::binary);
+    outfileNormal.write(&matdata.normalMap.data[0], matdata.normalMap.data.size());
+
+    std::string baseBumpMapPath = "materials/bumpMaps/";
+    std::string baseBumpMapPathstr = baseBumpMapPath + matdata.name + matdata.bumpMap.extension;
+    FString BumpPath = baseBumpMapPathstr.c_str();
+    FString BumpDir = FPaths::ProjectDir().Append(BumpPath);
+
+    std::string path3(TCHAR_TO_UTF8(*BumpDir));
+
+    UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *BumpDir);
+
+    std::ofstream outfileBump(path3, std::ios::out | std::ios::binary);
+    outfileBump.write(&matdata.bumpMap.data[0], matdata.bumpMap.data.size());
 
     // UMaterialExpressionMultiply* Multiply = NewObject<UMaterialExpressionMultiply>(genMat);
      //genMat->Expressions.Add(Multiply);
     genMats.Add(MaterialName, genMat);
-
 }
 

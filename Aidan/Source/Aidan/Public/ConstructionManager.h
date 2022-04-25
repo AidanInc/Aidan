@@ -3,12 +3,18 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameFramework/Pawn.h"
 #include <ProcLight.h>
 #include "ProcMesh.h"
 #include "Reader.h"
-#include <Runtime/Engine/Classes/Materials/MaterialExpressionMultiply.h>
-#include <Runtime/Engine/Classes/Materials/MaterialExpressionConstant.h>
 #include <Runtime/Engine/Classes/Materials/MaterialExpressionConstant3Vector.h>
+#include <Runtime/AssetRegistry/Public/AssetRegistry/AssetRegistryModule.h>
+#include <Runtime/Engine/Classes/Materials/MaterialExpressionConstant.h>
+#include <Runtime/Engine/Classes/Materials/MaterialExpressionScalarParameter.h>
+#include <Runtime/Engine/Classes/Materials/MaterialExpressionMultiply.h>
+#include <Runtime/Engine/Classes/Materials/MaterialExpressionAppendVector.h>
+#include <iostream>
+#include <fstream>
 #include "ConstructionManager.generated.h"
 
 UCLASS()
@@ -20,8 +26,6 @@ class AIDAN_API AConstructionManager : public AActor
 	Aidan::Reader binaryReader;
 	Aidan::AssetType currentAsset;
 	TMap<FString, UMaterial*> genMats;
-	
-
 public:
 	// Sets default values for this pawn's properties
 	AConstructionManager();

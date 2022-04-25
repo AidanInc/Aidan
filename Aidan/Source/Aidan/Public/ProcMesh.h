@@ -6,9 +6,6 @@
 #include "GameFramework/Actor.h"
 #include "ProceduralMeshComponent.h"
 #include "ProcMesh.generated.h"
-
-
-
 UCLASS()
 class AIDAN_API AProcMesh : public AActor
 {
@@ -32,7 +29,7 @@ public:
 	// Sets default values for this actor's properties
 	AProcMesh();
 	//void CreateMesh(TArray<FVector> readVerticies, TArray<int32> readTriangles, TArray<FVector2D> readUVs, FString materialName, int sectionIndex);
-	void CreateMesh(TArray<FVector> readVerticies, TArray<FVector2D> readUVs, TArray<FString> MaterialNames, int num_submeshes, TArray<int32> triangles, TMap<FString, UMaterial*> allMats);
+	void CreateMesh(TArray<FVector> readVerticies, TArray<FVector2D> readUVs, TArray<FString> MaterialNames, int num_submeshes, TArray<TArray<int32>> Alltriangles, TMap<FString, UMaterial*> allMats);
 	//TArray<FVector4> calculateTangents(TArray<FVector> readVerticies, TArray<int32> readTriangles, TArray<FVector2D> readUVs);
 	//Vector calculateNormals(TArray<int32> readTriangles, int current_set);
 
