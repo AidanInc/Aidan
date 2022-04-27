@@ -100,7 +100,7 @@ void AConstructionManager::buildMesh(Mesh mesh) {
     pos = FVector(0, 0, 0);
     rot = FRotator(0, 0, -90);
     AProcMesh* currentMesh = GetWorld()->SpawnActor<AProcMesh>(AProcMesh::StaticClass(), pos, rot, spawnParams);
-    currentMesh->SetActorLabel(mesh.name.c_str());
+   // currentMesh->SetActorLabel(mesh.name.c_str());
     // Lets try merging this into 1 single procedural mesh instead.
     //Could be a verticie issuse
     for (int i = 0; i < mesh.verts.size(); i++) {
@@ -161,38 +161,39 @@ void AConstructionManager::buildMaterial(Material matdata) {
     // Our job here is to create a Unity Material for the material handed from us.
     // the 2 is appended to AliDocument is because "AliDocument" is the namespace name.
 
-    //Creating the material asset
+     //Creating the material asset
     FString MaterialName = matdata.name.c_str(); // Swap this out for the name of the material we are reading in
 
-    UMaterial* genMat = NewObject<UMaterial>();
-    matdata.textureMap.data;
-    matdata.textureMap.extension;
-
-    // FGlobalComponentReregisterContext RecreateComponents;
-
-     //Setting the opacity of the material
-    UMaterialExpressionConstant* OpacityExpression = NewObject<UMaterialExpressionConstant>(genMat);
-    if (matdata.transparency) {
-        OpacityExpression->R = 0;
+    
+    FStringAssetReference DefaultMatPath("/Game/Materials/DefaultMaterial.DefaultMaterial");
+    
+    //auto MyAsset = MyAssetPath.TryLoad();
+    UObject* DefaultMat;
+    if (DefaultMatPath.TryLoad() != nullptr) {
+        DefaultMat = DefaultMatPath.TryLoad();
     }
     else {
-        OpacityExpression->R = 1;
+        DefaultMat = nullptr;
+        //This is bad
+    }
+
+
+
+    UMaterial* genMat = Cast<UMaterial>(DefaultMat);
+    UMaterialInstanceDynamic* customMaterial = UMaterialInstanceDynamic::Create(genMat, this);
+
+
+    //Setting the opacity of the material
+    if (matdata.transparency) {
+        customMaterial->SetScalarParameterValue("Transparency", 0);
+    }
+    else {
+        customMaterial->SetScalarParameterValue("Transparency", 1);
 
     }
 
-    genMat->Expressions.Add(OpacityExpression);
-    genMat->Opacity.Expression = OpacityExpression;
 
-
-    //Setting the Roughness / reflectiveness of the material 
-    UMaterialExpressionConstant* RoughExpression = NewObject<UMaterialExpressionConstant>(genMat);
-    RoughExpression->R = 1 - matdata.reflectivity;// Roughness and reflectiveness are inversly related
-    genMat->Expressions.Add(RoughExpression);
-    genMat->Roughness.Expression = RoughExpression;
-
-    //Setting the base color of the material
-    UMaterialExpressionConstant3Vector* BaseColorExpression = NewObject<UMaterialExpressionConstant3Vector>(genMat);
-    UMaterialExpressionTextureSample* TextureExpression = NewObject<UMaterialExpressionTextureSample>(genMat);
+    customMaterial->SetScalarParameterValue("Reflectivity", 1 - matdata.reflectivity);
 
     FLinearColor baseColor;
     auto* colorPtr = &baseColor;
@@ -201,16 +202,10 @@ void AConstructionManager::buildMaterial(Material matdata) {
     colorPtr->G = matdata.color.g;
     colorPtr->R = matdata.color.r;
 
-    BaseColorExpression->Constant = baseColor;
-    genMat->Expressions.Add(BaseColorExpression);
-    genMat->BaseColor.Expression = BaseColorExpression;
-    //Come back for tilling / shader stuff
-    // 
+    customMaterial->SetVectorParameterValue("Color", baseColor);
 
-      //The material will update itself if necessary
-    genMat->PreEditChange(NULL);
-    genMat->PostEditChange();
-    // make sure that any static meshes, etc using this material will stop using the FMaterialResource of the original
+
+    /*// make sure that any static meshes, etc using this material will stop using the FMaterialResource of the original
     // material, and will use the new FMaterialResource created when we make a new UMaterial in place
     UMaterialExpressionAppendVector* Append = NewObject<UMaterialExpressionAppendVector>(genMat);
     genMat->Expressions.Add(Append);
@@ -223,6 +218,8 @@ void AConstructionManager::buildMaterial(Material matdata) {
 
     Append->A.Expression = xTill;
     Append->B.Expression = yTill;
+    */
+
 
     std::string baseTexturePath = "materials/textures/";
     std::string baseTexturePathstr = baseTexturePath + matdata.name + matdata.textureMap.extension;
@@ -231,6 +228,8 @@ void AConstructionManager::buildMaterial(Material matdata) {
     std::string path(TCHAR_TO_UTF8(*TextureDir));
     UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *TextureDir);
     // FStringAssetReference AssetPath(TextureDir);
+
+
     std::ofstream outfileTexture(path, std::ios::out | std::ios::binary);
     outfileTexture.write(&matdata.textureMap.data[0], matdata.textureMap.data.size());
 
@@ -239,12 +238,15 @@ void AConstructionManager::buildMaterial(Material matdata) {
     FString NormalPath = baseNormalMapPathstr.c_str();
     FString NormalDir = FPaths::ProjectDir().Append(NormalPath);
 
+
+
     std::string path2(TCHAR_TO_UTF8(*NormalDir));
 
     UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *NormalDir);
 
     std::ofstream outfileNormal(path2, std::ios::out | std::ios::binary);
     outfileNormal.write(&matdata.normalMap.data[0], matdata.normalMap.data.size());
+
 
     std::string baseBumpMapPath = "materials/bumpMaps/";
     std::string baseBumpMapPathstr = baseBumpMapPath + matdata.name + matdata.bumpMap.extension;
@@ -260,6 +262,8 @@ void AConstructionManager::buildMaterial(Material matdata) {
 
     // UMaterialExpressionMultiply* Multiply = NewObject<UMaterialExpressionMultiply>(genMat);
      //genMat->Expressions.Add(Multiply);
-    genMats.Add(MaterialName, genMat);
+    genMats.Add(MaterialName, customMaterial);
+
+
 }
 
