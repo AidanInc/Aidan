@@ -2,6 +2,7 @@
 
 
 #include "ConstructionManager.h"
+#include <Runtime/Engine/Public/ImageUtils.h>
 
 
 
@@ -164,11 +165,20 @@ void AConstructionManager::buildMaterial(Material matdata) {
      //Creating the material asset
     FString MaterialName = matdata.name.c_str(); // Swap this out for the name of the material we are reading in
 
-    
-    FStringAssetReference DefaultMatPath("/Game/Materials/DefaultMaterial.DefaultMaterial");
-    
+    FStringAssetReference DefaultMatPath;
+    bool textureAsset;
     //auto MyAsset = MyAssetPath.TryLoad();
     UObject* DefaultMat;
+    //Some materials don't come with textures.
+    if (matdata.textureMap.extension == "") {
+        DefaultMatPath = ("/Game/Materials/DefaultMaterial.DefaultMaterial");
+        textureAsset = false;
+    }
+    else {
+        DefaultMatPath = ("/Game/Materials/DefaultTextureMaterial.DefaultTextureMaterial");
+        textureAsset = true;
+    }
+
     if (DefaultMatPath.TryLoad() != nullptr) {
         DefaultMat = DefaultMatPath.TryLoad();
     }
@@ -177,11 +187,8 @@ void AConstructionManager::buildMaterial(Material matdata) {
         //This is bad
     }
 
-
-
     UMaterial* genMat = Cast<UMaterial>(DefaultMat);
     UMaterialInstanceDynamic* customMaterial = UMaterialInstanceDynamic::Create(genMat, this);
-
 
     //Setting the opacity of the material
     if (matdata.transparency) {
@@ -191,63 +198,67 @@ void AConstructionManager::buildMaterial(Material matdata) {
         customMaterial->SetScalarParameterValue("Transparency", 1);
 
     }
-
-
     customMaterial->SetScalarParameterValue("Reflectivity", 1 - matdata.reflectivity);
+    if (!textureAsset) {
+        FLinearColor baseColor;
+        auto* colorPtr = &baseColor;
+        colorPtr->A = matdata.color.a;
+        colorPtr->B = matdata.color.b;
+        colorPtr->G = matdata.color.g;
+        colorPtr->R = matdata.color.r;
 
-    FLinearColor baseColor;
-    auto* colorPtr = &baseColor;
-    colorPtr->A = matdata.color.a;
-    colorPtr->B = matdata.color.b;
-    colorPtr->G = matdata.color.g;
-    colorPtr->R = matdata.color.r;
+        customMaterial->SetVectorParameterValue("Color", baseColor);
+    }
+    if (textureAsset) {
 
-    customMaterial->SetVectorParameterValue("Color", baseColor);
+        /*FString dir = FPaths::ProjectDir().Append("ali/model.ALI");
+        UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *dir);
+        std::string path(TCHAR_TO_UTF8(*dir));
+        */
+        //texture Map
+        std::string baseTexturePath = "textures/" + matdata.name + matdata.textureMap.extension;
+        FString TexturePath = (baseTexturePath).c_str();
+        FString TextureDir = FPaths::ProjectDir().Append("textures/test.png");
+        std::string path(TCHAR_TO_UTF8(*TextureDir));
+        UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *TextureDir);
+      
+        std::ofstream outfileTexture(path, std::ios::out | std::ios::binary);
+        outfileTexture.write(&matdata.textureMap.data[0], matdata.textureMap.data.size());
+        outfileTexture.close();
 
+        //FStringAssetReference DefaultTexturePath(TextureDir);
 
-    /*// make sure that any static meshes, etc using this material will stop using the FMaterialResource of the original
-    // material, and will use the new FMaterialResource created when we make a new UMaterial in place
-    UMaterialExpressionAppendVector* Append = NewObject<UMaterialExpressionAppendVector>(genMat);
-    genMat->Expressions.Add(Append);
-    UMaterialExpressionScalarParameter* xTill = NewObject<UMaterialExpressionScalarParameter>(genMat);
-    UMaterialExpressionScalarParameter* yTill = NewObject<UMaterialExpressionScalarParameter>(genMat);
-    xTill->ParameterName = "xTilling";
-    xTill->DefaultValue = matdata.textureMap.xTiling;
-    yTill->ParameterName = "yTilling";
-    yTill->DefaultValue = matdata.textureMap.yTiling;
+        //DefaultTexturePath.TryLoad();
+        
+       /* UObject* matTexture;
+        if (DefaultTexturePath.TryLoad() != nullptr) {
+            matTexture = DefaultMatPath.TryLoad();
+        }
+        else {
+            matTexture = nullptr;
+            //This is bad
+        }*/
+        //Converting the image into a texture
+       // UTexture2D* genTexture = Cast<UTexture2D>(matTexture);
+        
+        customMaterial->SetScalarParameterValue("X-Tilling", matdata.textureMap.xTiling);
+        customMaterial->SetScalarParameterValue("Y-Tilling", matdata.textureMap.yTiling);
+        UTexture2D* genTexture = FImageUtils::ImportFileAsTexture2D(path.c_str());
+        customMaterial->SetTextureParameterValue("Texture", genTexture);
+    }
 
-    Append->A.Expression = xTill;
-    Append->B.Expression = yTill;
-    */
-
-
-    std::string baseTexturePath = "materials/textures/";
-    std::string baseTexturePathstr = baseTexturePath + matdata.name + matdata.textureMap.extension;
-    FString TexturePath = (baseTexturePathstr).c_str();
-    FString TextureDir = FPaths::ProjectDir().Append(TexturePath);
-    std::string path(TCHAR_TO_UTF8(*TextureDir));
-    UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *TextureDir);
-    // FStringAssetReference AssetPath(TextureDir);
-
-
-    std::ofstream outfileTexture(path, std::ios::out | std::ios::binary);
-    outfileTexture.write(&matdata.textureMap.data[0], matdata.textureMap.data.size());
-
+    //Normal Map
     std::string baseNormalMapPath = "materials/normalMaps/";
     std::string baseNormalMapPathstr = baseNormalMapPath + matdata.name + matdata.normalMap.extension;
     FString NormalPath = baseNormalMapPathstr.c_str();
     FString NormalDir = FPaths::ProjectDir().Append(NormalPath);
-
-
-
     std::string path2(TCHAR_TO_UTF8(*NormalDir));
-
     UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *NormalDir);
 
     std::ofstream outfileNormal(path2, std::ios::out | std::ios::binary);
     outfileNormal.write(&matdata.normalMap.data[0], matdata.normalMap.data.size());
 
-
+    //Bump Map
     std::string baseBumpMapPath = "materials/bumpMaps/";
     std::string baseBumpMapPathstr = baseBumpMapPath + matdata.name + matdata.bumpMap.extension;
     FString BumpPath = baseBumpMapPathstr.c_str();
@@ -260,8 +271,6 @@ void AConstructionManager::buildMaterial(Material matdata) {
     std::ofstream outfileBump(path3, std::ios::out | std::ios::binary);
     outfileBump.write(&matdata.bumpMap.data[0], matdata.bumpMap.data.size());
 
-    // UMaterialExpressionMultiply* Multiply = NewObject<UMaterialExpressionMultiply>(genMat);
-     //genMat->Expressions.Add(Multiply);
     genMats.Add(MaterialName, customMaterial);
 
 

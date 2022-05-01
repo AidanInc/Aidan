@@ -8,9 +8,9 @@ public class Aidan : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "ProceduralMeshComponent"});
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "ProceduralMeshComponent", "ImageWrapper", "RenderCore"});
 
-		PrivateDependencyModuleNames.AddRange(new string[] { "ProceduralMeshComponent"});
+		PrivateDependencyModuleNames.AddRange(new string[] { "ProceduralMeshComponent", "ImageWrapper", "RenderCore" });
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
