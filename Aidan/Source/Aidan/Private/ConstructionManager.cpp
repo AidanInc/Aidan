@@ -167,6 +167,8 @@ void AConstructionManager::buildMaterial(Material matdata) {
 
     FStringAssetReference DefaultMatPath;
     bool textureAsset;
+    bool hasBumpMap;
+    bool hasNormalMap;
     //auto MyAsset = MyAssetPath.TryLoad();
     UObject* DefaultMat;
     //Some materials don't come with textures.
@@ -178,6 +180,19 @@ void AConstructionManager::buildMaterial(Material matdata) {
         DefaultMatPath = ("/Game/Materials/DefaultTextureMaterial.DefaultTextureMaterial");
         textureAsset = true;
     }
+    if (matdata.normalMap.extension == "") {
+        hasNormalMap = false;
+    }
+    else {
+        hasNormalMap = true;
+    }
+    if (matdata.bumpMap.extension == "") {
+        hasBumpMap = false;
+    }
+    else {
+        hasBumpMap = true;
+    }
+
 
     if (DefaultMatPath.TryLoad() != nullptr) {
         DefaultMat = DefaultMatPath.TryLoad();
@@ -222,7 +237,8 @@ void AConstructionManager::buildMaterial(Material matdata) {
         std::string path(TCHAR_TO_UTF8(*TextureDir));
         UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *TextureDir);
       
-        std::ofstream outfileTexture(path, std::ios::out | std::ios::binary);
+       // std::ofstream outfileTexture(path, std::ios::out | std::ios::binary);
+        std::ofstream outfileTexture("C:/Users/malik/OneDrive/Desktop/Software Engineering Capstone/Capstone 3/test_folder/" + matdata.name + matdata.textureMap.extension, std::ios::out | std::ios::binary);
         outfileTexture.write(&matdata.textureMap.data[0], matdata.textureMap.data.size());
         outfileTexture.close();
 
@@ -255,8 +271,8 @@ void AConstructionManager::buildMaterial(Material matdata) {
     std::string path2(TCHAR_TO_UTF8(*NormalDir));
     UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *NormalDir);
 
-    std::ofstream outfileNormal(path2, std::ios::out | std::ios::binary);
-    outfileNormal.write(&matdata.normalMap.data[0], matdata.normalMap.data.size());
+   // std::ofstream outfileNormal("C:/Users/malik/OneDrive/Desktop/Software Engineering Capstone/Capstone 3/test_folder/"+ matdata.name + matdata.normalMap.extension, std::ios::out | std::ios::binary);
+    //outfileNormal.write(&matdata.normalMap.data[0], matdata.normalMap.data.size());
 
     //Bump Map
     std::string baseBumpMapPath = "materials/bumpMaps/";
@@ -268,8 +284,8 @@ void AConstructionManager::buildMaterial(Material matdata) {
 
     UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *BumpDir);
 
-    std::ofstream outfileBump(path3, std::ios::out | std::ios::binary);
-    outfileBump.write(&matdata.bumpMap.data[0], matdata.bumpMap.data.size());
+    //std::ofstream outfileBump("C:/Users/malik/OneDrive/Desktop/Software Engineering Capstone/Capstone 3/test_folder/" + matdata.name + matdata.bumpMap.extension, std::ios::out | std::ios::binary);
+    //outfileBump.write(&matdata.bumpMap.data[0], matdata.bumpMap.data.size());
 
     genMats.Add(MaterialName, customMaterial);
 
