@@ -80,7 +80,7 @@ void AConstructionManager::buildLight(Light light) {
     AProcLight* currentLight = GetWorld()->SpawnActor<AProcLight>(AProcLight::StaticClass(), pos, rot, spawnParams);
     FLinearColor color = FLinearColor(light.color.r, light.color.g, light.color.b, light.color.a);
 
-    currentLight->buildLight(pos, color, light.intensity);
+    currentLight->buildLight(pos, color, light.intensity*10);
     genlights.Add(currentLight);
 
 }
@@ -173,10 +173,13 @@ void AConstructionManager::buildMaterial(Material matdata) {
     //auto MyAsset = MyAssetPath.TryLoad();
     UObject* DefaultMat;
     //Some materials don't come with textures.
+ 
+    // DefaultMatPath = ("/Game/Materials/DefaultTextureMaterial.DefaultTextureMaterial");
     if (matdata.textureMap.extension == "") {
         DefaultMatPath = ("/Game/Materials/DefaultMaterial.DefaultMaterial");
         textureAsset = false;
     }
+    
     else {
         DefaultMatPath = ("/Game/Materials/DefaultTextureMaterial.DefaultTextureMaterial");
         textureAsset = true;
@@ -227,77 +230,74 @@ void AConstructionManager::buildMaterial(Material matdata) {
     }
     if (textureAsset) {
 
-        /*FString dir = FPaths::ProjectDir().Append("ali/model.ALI");
-        UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *dir);
-        std::string path(TCHAR_TO_UTF8(*dir));
-        */
         //texture Map
 
-		FString TextureDir = FPaths::ProjectDir().Append("textures");
-		if (!PlatformFile.DirectoryExists(*TextureDir)) {
-			PlatformFile.CreateDirectory(*TextureDir);
-			UE_LOG(LogTemp, Warning, TEXT("DIRECRORY TEXTURES CREATED"));
-		}
+        FString TextureDir = FPaths::ProjectDir().Append("textures");
+        if (!PlatformFile.DirectoryExists(*TextureDir)) {
+            PlatformFile.CreateDirectory(*TextureDir);
+            UE_LOG(LogTemp, Warning, TEXT("DIRECRORY TEXTURES CREATED"));
+        }
 
 
-        std::string baseTexturePath = "textures/" + matdata.name + matdata.textureMap.extension;
+        std::string baseTexturePath = matdata.name + matdata.textureMap.extension;
         FString TexturePath = (baseTexturePath).c_str();
-        FString TestTexture = FPaths::ProjectDir().Append("textures/test.png");
-        std::string path(TCHAR_TO_UTF8(*TestTexture));
-        UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *TestTexture);
-      
-       // std::ofstream outfileTexture(path, std::ios::out | std::ios::binary);
-        std::ofstream outfileTexture("C:/Users/malik/OneDrive/Desktop/Software Engineering Capstone/Capstone 3/test_folder/" + matdata.name + matdata.textureMap.extension, std::ios::out | std::ios::binary);
+        TexturePath = TextureDir + "/" + TexturePath;
+        std::string path(TCHAR_TO_UTF8(*TexturePath));
+        UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *TexturePath);
+
+        std::ofstream outfileTexture(path, std::ios::out | std::ios::binary);
         outfileTexture.write(&matdata.textureMap.data[0], matdata.textureMap.data.size());
         outfileTexture.close();
 
-        //FStringAssetReference DefaultTexturePath(TextureDir);
-
-        //DefaultTexturePath.TryLoad();
-        
-       /* UObject* matTexture;
-        if (DefaultTexturePath.TryLoad() != nullptr) {
-            matTexture = DefaultMatPath.TryLoad();
-        }
-        else {
-            matTexture = nullptr;
-            //This is bad
-        }*/
-        //Converting the image into a texture
-       // UTexture2D* genTexture = Cast<UTexture2D>(matTexture);
-        
         customMaterial->SetScalarParameterValue("X-Tilling", matdata.textureMap.xTiling);
         customMaterial->SetScalarParameterValue("Y-Tilling", matdata.textureMap.yTiling);
+        
         UTexture2D* genTexture = FImageUtils::ImportFileAsTexture2D(path.c_str());
+        
         customMaterial->SetTextureParameterValue("Texture", genTexture);
     }
 
     //Normal Map
-    std::string baseNormalMapPath = "materials/normalMaps/";
-    std::string baseNormalMapPathstr = baseNormalMapPath + matdata.name + matdata.normalMap.extension;
-    FString NormalPath = baseNormalMapPathstr.c_str();
-    FString NormalDir = FPaths::ProjectDir().Append(NormalPath);
-    std::string path2(TCHAR_TO_UTF8(*NormalDir));
-    UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *NormalDir);
 
-   // std::ofstream outfileNormal("C:/Users/malik/OneDrive/Desktop/Software Engineering Capstone/Capstone 3/test_folder/"+ matdata.name + matdata.normalMap.extension, std::ios::out | std::ios::binary);
-    //outfileNormal.write(&matdata.normalMap.data[0], matdata.normalMap.data.size());
+    if (hasNormalMap) {
 
+
+        FString normalDir = FPaths::ProjectDir().Append("normalMaps");
+        if (!PlatformFile.DirectoryExists(*normalDir)) {
+            PlatformFile.CreateDirectory(*normalDir);
+            UE_LOG(LogTemp, Warning, TEXT("DIRECRORY NORMALMAPS CREATED"));
+        }
+        std::string baseNormalMapPath = "normalMaps/";
+        std::string baseNormalMapPathstr = baseNormalMapPath + matdata.name + matdata.normalMap.extension;
+        FString NormalPath = baseNormalMapPathstr.c_str();
+        FString NormalDir = FPaths::ProjectDir().Append(NormalPath);
+        std::string path2(TCHAR_TO_UTF8(*NormalDir));
+        UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *NormalDir);
+
+        std::ofstream outfileNormal(path2 + matdata.name + matdata.normalMap.extension, std::ios::out | std::ios::binary);
+        outfileNormal.write(&matdata.normalMap.data[0], matdata.normalMap.data.size());
+    }
     //Bump Map
-    std::string baseBumpMapPath = "materials/bumpMaps/";
-    std::string baseBumpMapPathstr = baseBumpMapPath + matdata.name + matdata.bumpMap.extension;
-    FString BumpPath = baseBumpMapPathstr.c_str();
-    FString BumpDir = FPaths::ProjectDir().Append(BumpPath);
+    if (hasBumpMap) {
+        FString bumpMapDir = FPaths::ProjectDir().Append("bumpMaps");
+        if (!PlatformFile.DirectoryExists(*bumpMapDir)) {
+            PlatformFile.CreateDirectory(*bumpMapDir);
+            UE_LOG(LogTemp, Warning, TEXT("DIRECRORY BUMPMAPS CREATED"));
+        }
+        std::string baseBumpMapPath = "bumpMaps/";
+        std::string baseBumpMapPathstr = baseBumpMapPath + matdata.name + matdata.bumpMap.extension;
+        FString BumpPath = baseBumpMapPathstr.c_str();
+        FString BumpDir = FPaths::ProjectDir().Append(BumpPath);
 
-    std::string path3(TCHAR_TO_UTF8(*BumpDir));
+        std::string path3(TCHAR_TO_UTF8(*BumpDir));
 
-    UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *BumpDir);
+        UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *BumpDir);
 
-    //std::ofstream outfileBump("C:/Users/malik/OneDrive/Desktop/Software Engineering Capstone/Capstone 3/test_folder/" + matdata.name + matdata.bumpMap.extension, std::ios::out | std::ios::binary);
-    //outfileBump.write(&matdata.bumpMap.data[0], matdata.bumpMap.data.size());
+        std::ofstream outfileBump(path3 + matdata.name + matdata.bumpMap.extension, std::ios::out | std::ios::binary);
+        outfileBump.write(&matdata.bumpMap.data[0], matdata.bumpMap.data.size());
+    }
 
     genMats.Add(MaterialName, customMaterial);
-
-
 }
+
 
