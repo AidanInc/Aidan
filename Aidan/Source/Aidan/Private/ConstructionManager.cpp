@@ -145,6 +145,7 @@ void AConstructionManager::buildMesh(Mesh mesh) {
 void AConstructionManager::buildMaterial(Material matdata) {
     //Code was obtained from: https://isaratech.com/ue4-programmatically-create-a-new-material-and-inner-nodes/
     UE_LOG(LogTemp, Warning, TEXT("generating %s "), matdata.name.c_str());
+    IPlatformFile& PlatformFile = FPlatformFileManager::Get().GetPlatformFile();
 
     // Determining Shaders from material properties
     //                           Color | TextureMap | Transparent | Reflective
@@ -231,11 +232,19 @@ void AConstructionManager::buildMaterial(Material matdata) {
         std::string path(TCHAR_TO_UTF8(*dir));
         */
         //texture Map
+
+		FString TextureDir = FPaths::ProjectDir().Append("textures");
+		if (!PlatformFile.DirectoryExists(*TextureDir)) {
+			PlatformFile.CreateDirectory(*TextureDir);
+			UE_LOG(LogTemp, Warning, TEXT("DIRECRORY TEXTURES CREATED"));
+		}
+
+
         std::string baseTexturePath = "textures/" + matdata.name + matdata.textureMap.extension;
         FString TexturePath = (baseTexturePath).c_str();
-        FString TextureDir = FPaths::ProjectDir().Append("textures/test.png");
-        std::string path(TCHAR_TO_UTF8(*TextureDir));
-        UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *TextureDir);
+        FString TestTexture = FPaths::ProjectDir().Append("textures/test.png");
+        std::string path(TCHAR_TO_UTF8(*TestTexture));
+        UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *TestTexture);
       
        // std::ofstream outfileTexture(path, std::ios::out | std::ios::binary);
         std::ofstream outfileTexture("C:/Users/malik/OneDrive/Desktop/Software Engineering Capstone/Capstone 3/test_folder/" + matdata.name + matdata.textureMap.extension, std::ios::out | std::ios::binary);
