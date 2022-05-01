@@ -13,6 +13,7 @@
 #include <Runtime/Engine/Classes/Materials/MaterialExpressionAppendVector.h>
 #include <iostream>
 #include <fstream>
+#include "GenericPlatform/GenericPlatformFile.h"
 #include "ConstructionManager.generated.h"
 
 UCLASS()
