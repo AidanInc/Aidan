@@ -33,6 +33,12 @@ public:
 	void buildMesh(Mesh mesh); // Insert Data in the format: TArray<FVector> Verticies, TArray<int32> Triangles, TArray<FVector2D> UVs, FString materialName
 	void beginReading();
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Textures, meta=(DisplayName="TexturePath"))
+		FString TexturePath;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Textures, meta = (DisplayName = "2DTexture"))
+		UTexture2D* GenTexture;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

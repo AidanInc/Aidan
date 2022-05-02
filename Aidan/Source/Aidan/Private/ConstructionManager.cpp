@@ -237,10 +237,7 @@ void AConstructionManager::buildMaterial(Material matdata) {
             PlatformFile.CreateDirectory(*TextureDir);
             UE_LOG(LogTemp, Warning, TEXT("DIRECRORY TEXTURES CREATED"));
         }
-
-
-        std::string baseTexturePath = matdata.name + matdata.textureMap.extension;
-        FString TexturePath = (baseTexturePath).c_str();
+        TexturePath = (matdata.name + matdata.textureMap.extension).c_str();
         TexturePath = TextureDir + "/" + TexturePath;
         std::string path(TCHAR_TO_UTF8(*TexturePath));
         UE_LOG(LogTemp, Warning, TEXT("DIRECRORY %s "), *TexturePath);
@@ -251,10 +248,10 @@ void AConstructionManager::buildMaterial(Material matdata) {
 
         customMaterial->SetScalarParameterValue("X-Tilling", matdata.textureMap.xTiling);
         customMaterial->SetScalarParameterValue("Y-Tilling", matdata.textureMap.yTiling);
-        
-        UTexture2D* genTexture = FImageUtils::ImportFileAsTexture2D(path.c_str());
-        
-        customMaterial->SetTextureParameterValue("Texture", genTexture);
+
+
+			customMaterial->SetTextureParameterValue("Texture", GenTexture);
+			UE_LOG(LogTemp, Warning, TEXT("TEXTURE SET"));
     }
 
     //Normal Map
