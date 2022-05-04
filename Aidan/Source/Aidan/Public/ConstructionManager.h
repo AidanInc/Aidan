@@ -6,38 +6,31 @@
 #include <ProcLight.h>
 #include "ProcMesh.h"
 #include "Reader.h"
-#include <Runtime/Engine/Classes/Materials/MaterialExpressionConstant3Vector.h>
-#include <Runtime/Engine/Classes/Materials/MaterialExpressionConstant.h>
-#include <Runtime/Engine/Classes/Materials/MaterialExpressionScalarParameter.h>
-#include <Runtime/Engine/Classes/Materials/MaterialExpressionMultiply.h>
-#include <Runtime/Engine/Classes/Materials/MaterialExpressionAppendVector.h>
+#include <Runtime/Engine/Public/ImageUtils.h>
 #include <iostream>
 #include <fstream>
-#include "GenericPlatform/GenericPlatformFile.h"
 #include "ConstructionManager.generated.h"
 
 UCLASS()
 class AIDAN_API AConstructionManager : public AActor
 {
 	GENERATED_BODY()
-	TArray<AProcLight*> genlights;
+		TArray<AProcLight*> genlights;
 	TArray<AProcMesh*> genMeshes;
-	Aidan::Reader binaryReader;
-	Aidan::AssetType currentAsset;
-	TMap<FString, UMaterialInstanceDynamic*> genMats;
+	Aidan::Reader binaryReader; //Binary reader object
+	Aidan::AssetType currentAsset;// Will store the current object stored in the ALI file
+	TMap<FString, UMaterialInstanceDynamic*> genMats; // Dictonary that stores all of the Materials in the ALI file.
 public:
-	// Sets default values for this pawn's properties
+	// Constructor function. 
 	AConstructionManager();
-	void buildMaterial(Material matData); // insert matData object here
-	void buildLight(Light light); //Insert Data in the format: FVector4 Color (R,G,B,A), float lightIntensity,FVector lightPosition
-	void buildMesh(Mesh mesh); // Insert Data in the format: TArray<FVector> Verticies, TArray<int32> Triangles, TArray<FVector2D> UVs, FString materialName
+	//Builds Unreal Materials based on Data from the ALI file.
+	void buildMaterial(Material matData);
+	//Builds Point lights in Unreal based on Data read from ALI file
+	void buildLight(Light light);
+	//Build procedural mesh based on data from ALI file.
+	void buildMesh(Mesh mesh);
+	// Starts the binary reader.
 	void beginReading();
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Textures, meta=(DisplayName="TexturePath"))
-		FString TexturePath;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Textures, meta = (DisplayName = "2DTexture"))
-		UTexture2D* GenTexture;
 
 protected:
 	// Called when the game starts or when spawned
