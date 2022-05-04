@@ -6,7 +6,7 @@ Our team name is the  **Iteration Station**.  Our team website can be viewed [he
 
 Email:  kylecbrick@lewisu.edu
 
-GitHub: kbrick712
+GitHub: [kbrick712](https://github.com/kbrick712)
 
 Role: 
 
@@ -14,7 +14,9 @@ Role:
 
 Email: bryantgabe@lewisu.edu
 
-Github: BryanGabe00
+Other: gabebryan0@gmail.com
+
+Github: [BryanGabe00](https://github.com/BryanGabe00)
 
 Role: Product Owner
 
@@ -22,14 +24,17 @@ Role: Product Owner
 
 Email: paulargrata@lewisu.edu
 
-Github: befreshyo
+Github: [befreshyo](https://github.com/befreshyo)
 
 Role: Member
 
 ## Adrian Perez
+
 Email: adrianjperez@lewisu.edu
 
-Github: 7aperez
+Other: perez324158@gmail.com
+
+Github: [7aperez](https://github.com/7pereza)
 
 Role: Member
 
@@ -37,13 +42,17 @@ Role: Member
 
 Email: malikltifah@lewisu.edu
 
-Github: MalikGB
+Other: Maliktifah378@gmail.com
+
+Github: [MalikGB](https://github.com/MalikGB)
 
 Role: Member
 
 ## Diya Patel
 Email: diyapatel@lewisu.edu
 
-Github: dya-create
+Github: [dya-create](https://github.com/dya-create)
 
 Role: Member
+
+
