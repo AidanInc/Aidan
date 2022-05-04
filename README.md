@@ -1,30 +1,57 @@
 # Aidan - Main Branch
+
+## About 
+Aidan Interactive Rendering is a rendering tool that uses Unreal Engine 4 to bring acritical designs to life. Using this software will allow you the chance to show off your designs that have been built in Revit and exported to the cloud that hosts all the current designs.
+
+[For more about the intial efforts click here](https://www.lewis.education/?cpsc=sp22-cpsc-49200-001&hide-nav=y#/activity/aidan)
 ## Set Up 
+### Downloading Executable
+[Link to teams gamejolt](https://gamejolt.com/games/aidan-interactive-rendering/703091)
+go to the teams gamejolt website, this is where the packaged executable file is host. Once the program has finished downloading open it (you will need to unzip it first), you should then see the exe file called `Aidan.exe` and run the program.
 
-Have a Epic Game account (sign up is free) to download the Unreal Engine 4.27
+When the program is running first go to `Model Options` and click on the `Defalut` so it can download the need file, after the wall of text in blue has stoped you can go back to the home screen and click on `Start` and the rendering should start
 
-The core project files are in ./Adian this should have 
-- Config/
-- Content/
-- Source/
-- Aidan.uproject
+*Note:
+At the moment to download the program from gamejolt a invite has to made and sent to you  
 
-You should be able to right click on the file `Aidan.uproject` to generate visual studio project files, once that is done you can double click on the `Aidan.uproject`
+### Run from GitHub
+*this will go over building and running the project, this is also the process to start devlopment on the project*
 
+**Requiuments**
+- Have a Epic Game account (sign up is free) to download the Unreal Engine 4.27
+- Download the plugin [run-time-files-downloader](https://www.unrealengine.com/marketplace/en-US/product/runtime-files-downloader)
+- Visual Studio 2019
 
-Note - might need to install a plug in call [run-time-files-downloader](https://www.unrealengine.com/marketplace/en-US/product/runtime-files-downloader)
+The core project files are in `/Adian` this should have: 
+- `Config/`
+- `Content/`
+- `Source/`
+- `Aidan.uproject`
+
+You should be able to right click on the file `Aidan.uproject` to generate the other folders and files that are needed, once that is done you can double click on the `Aidan.uproject` to start developing or right click to `Launch Game` 
+
+After generating it have these folders and files:
+- `Binaries/`
+- `Config/`
+- `Content/`
+- `DerivedDataCache/`
+- `Intermediate/`
+- `Saved/`
+- `Source/`
+- `Aidan.sln`
+- `Aidan.uproject`
+
+*Note: If for some reason the download of the ali file is not working you can paste the file. First make the dir `ali/` under the root project and paste the `model.ALI` in there [model ali file in github](/other-resources/alifiles/model.ALI)  
 
 ## Project Info
-[The goal of this project](https://www.lewis.education/?cpsc=sp22-cpsc-49200-001&hide-nav=y#/activity/aidan)
+The Team Minimum Viable Product [Learn more here](/documentation/MVP.md)
 
-[MVP](./MVP.md)
+Learn about our Continuous Intergration and Continuous Delivery [click here for CI-CD](/documentation/CI-CD.md)
 
-[CI-CD](./CI-CD.md)
-
-we are using Epic games Unreal Engine 4 (UE4) to help use render the models
-
+How is the team interacted and worked [click here](/documentation/PROCESS.md)
 ## Credits
+To see who is on the time or to contact them [click here](/documentation/TEAM.md)
 
-[Who is on the team?](./TEAM.md)
+Learn more about the team by going to our website [Link: ITERATION STATION](https://witty-meadow-055b73d10.1.azurestaticapps.net/)
 
-[How is the team going to interact?](./PROCESS.md)
+*if the website is down the code [is here](/other-resources/team-spring2022)
