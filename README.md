@@ -1,7 +1,11 @@
 # Aidan - Main Branch
 
+**For future teams look at [Sustainability.md](/documentation/Sustainability.md) has a good breakdown on the project files and the services that are being for this project and more...**
+
 ## About 
 Aidan Interactive Rendering is a rendering tool that uses Unreal Engine 4 to bring acritical designs to life. Using this software will allow you the chance to show off your designs that have been built in Revit and exported to the cloud that hosts all the current designs.
+
+This project started as the name Stadia by Robert and Eric Pogue. They created a Interactive Rendering Tool within Unity that allowed architects to see their renders from Revit in real time without the limit of hardware. This project was very successful and sold commercially for awhile until it was abandoned a few years ago. Eric Pogue decided to bring the project back to life in a stronger 3D engine so that is where Unreal Engine 4 comes in. We are attempting to rebuild this project but with the full ability to run at build time (lighting, materials, and meshes) and not have to be tied down by the editor for each new ali file we wish to use. 
 
 [For more about the intial efforts click here](https://www.lewis.education/?cpsc=sp22-cpsc-49200-001&hide-nav=y#/activity/aidan)
 ## Set Up 
@@ -30,7 +34,7 @@ The core project files are in `/Adian` this should have:
 
 You should be able to right click on the file `Aidan.uproject` to generate the other folders and files that are needed, once that is done you can double click on the `Aidan.uproject` to start developing or right click to `Launch Game` 
 
-After generating it have these folders and files:
+After generating it shpuld have these folders and files:
 - `Binaries/`
 - `Config/`
 - `Content/`
