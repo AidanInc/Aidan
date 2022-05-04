@@ -11,24 +11,19 @@ UCLASS()
 class AIDAN_API AProcLight : public AActor
 {
 	GENERATED_BODY()
-	
-	
-	
-	
-	
-public:	
+
+
+public:
 	// Sets default values for this actor's properties
 	AProcLight();
-	class UPointLightComponent* procLight;
-	FLinearColor lightColor;
-	float intensity;
-	FVector position;
+	class UPointLightComponent* procLight; //Point Light object that will be spawned in the world
+	FLinearColor lightColor; //The light color
+	float intensity;// the light intensity
+	FVector position;// The light position
 
 	UFUNCTION()
-		void buildLight(FVector lightPosition,FLinearColor genLightColor, float lightIntensity);
-
-	
-
+		//Creates the point light based on position, color, and intensity data
+		void buildLight(FVector lightPosition, FLinearColor genLightColor, float lightIntensity);
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

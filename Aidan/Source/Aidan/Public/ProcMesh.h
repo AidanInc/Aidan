@@ -12,26 +12,23 @@ class AIDAN_API AProcMesh : public AActor
 {
 	//Try using Custom Mesh component instead of Procedural mesh component
 	GENERATED_BODY()
-	TArray<FVector> Vertices;
+		TArray<FVector> Vertices;
 	TArray<int32> Triangles;
 	TArray<FVector2D>UVs;
-	FString materialPath = "/Game/Materials/DefaultMaterial_Inst";
-	//FString materialPath = "/Game/Materials/";
-	FString baseMaterialPath = "/Game/Materials/";
 	UPROPERTY()
-	UProceduralMeshComponent* ProcMesh;
+		UProceduralMeshComponent* ProcMesh;
+	//These two variables dont do anything, but are needed to create a procedural mesh
 	TArray<FVector> normals;
 	TArray<FProcMeshTangent> tangents;
+
 	UMaterialInstanceDynamic* currentMat;
-	UMaterialInterface* material;
 
 public:
 	// Sets default values for this actor's properties
 	AProcMesh();
 	//void CreateMesh(TArray<FVector> readVerticies, TArray<int32> readTriangles, TArray<FVector2D> readUVs, FString materialName, int sectionIndex);
 	void CreateMesh(TArray<FVector> readVerticies, TArray<FVector2D> readUVs, TArray<FString> MaterialNames, int num_submeshes, TArray<TArray<int32>> Alltriangles, TMap<FString, UMaterialInstanceDynamic*> allMats);
-	//TArray<FVector4> calculateTangents(TArray<FVector> readVerticies, TArray<int32> readTriangles, TArray<FVector2D> readUVs);
-	//Vector calculateNormals(TArray<int32> readTriangles, int current_set);
+
 
 protected:
 	// Called when the game starts or when spawned
