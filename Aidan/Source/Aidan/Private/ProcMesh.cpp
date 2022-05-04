@@ -12,10 +12,12 @@ AProcMesh::AProcMesh()
 }
 
 
-void AProcMesh::CreateMesh(TArray<FVector> readVerticies, TArray<FVector2D> readUVs, TArray<FString> MaterialNames, int num_submeshes, TArray<TArray<int32>> allTriangles, TMap<FString, UMaterial*> allMats)
+void AProcMesh::CreateMesh(TArray<FVector> readVerticies, TArray<FVector2D> readUVs, TArray<FString> MaterialNames, int num_submeshes, TArray<TArray<int32>> allTriangles, TMap<FString, UMaterialInstanceDynamic*> allMats)
 {
-
 	for (int i = 0; i < num_submeshes; i++) {
+		if (allTriangles[i].Num() <= 3) {
+			continue;
+		}
 		ProcMesh->CreateMeshSection(i, readVerticies, allTriangles[i], TArray<FVector>(), readUVs, TArray<FColor>(), TArray<FProcMeshTangent>(), false);
 		currentMat = allMats.FindRef(MaterialNames[i]);
 		if (currentMat != nullptr)
@@ -25,9 +27,8 @@ void AProcMesh::CreateMesh(TArray<FVector> readVerticies, TArray<FVector2D> read
 		else {
 			//Uh Oh
 		}
-		materialPath = baseMaterialPath;
 	}
-
+	
 }
 /*TArray<FVector4> calculateTangents(TArray<FVector> readVerticies, TArray<int32> readTriangles, TArray<FVector2D> readUVs) {
 
