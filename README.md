@@ -34,7 +34,7 @@ The core project files are in `/Adian` this should have:
 
 You should be able to right click on the file `Aidan.uproject` to generate the other folders and files that are needed, once that is done you can double click on the `Aidan.uproject` to start developing or right click to `Launch Game` 
 
-After generating it shpuld have these folders and files:
+After generating it should have these folders and files:
 - `Binaries/`
 - `Config/`
 - `Content/`
