@@ -2,6 +2,10 @@
 #include <assert.h>
 #include <memory>
 
+/** 
+ * @param fs - File Stream 
+ * @return unsigned char - returns the next byte of the file specified 
+ */
 unsigned char Aidan::peekByte(std::ifstream& fs)
 {
 	unsigned char c = 0;
@@ -10,6 +14,10 @@ unsigned char Aidan::peekByte(std::ifstream& fs)
 	return c;
 }
 
+/** 
+ * @param fs - File Stream 
+ * @return unsigned int - returns the next int (4 bytes) of the file specified 
+ */
 int Aidan::readInt(std::ifstream& fs)
 {
 	int x = 0;
@@ -18,6 +26,10 @@ int Aidan::readInt(std::ifstream& fs)
 	return x;
 }
 
+/** 
+ * @param fs - File Stream 
+ * @return unsigned double - returns the next double value (8 bytes) of the file specified 
+ */
 double Aidan::readDouble(std::ifstream& fs)
 {
 	double x = 0.0f;
@@ -26,6 +38,10 @@ double Aidan::readDouble(std::ifstream& fs)
 	return x;
 }
 
+/** 
+ * @param fs - File Stream 
+ * @return unsigned char - returns the next byte (1 byte) of the file specified 
+ */
 unsigned char Aidan::readByte(std::ifstream& fs)
 {
 	unsigned char x = 0;
@@ -33,7 +49,10 @@ unsigned char Aidan::readByte(std::ifstream& fs)
 	fs.read(reinterpret_cast<char*>(&x), 1);
 	return x;
 }
-
+/** 
+ * @param fs - File Stream 
+ * @return unsigned std::string - returns the next string set of the file specified 
+ */
 std::string Aidan::readString(std::ifstream& fs) {
 	int len = readInt(fs);
 	std::unique_ptr<char[]> buffer{ new char[len] }; //create a char[] that will be the buffer of what we read
@@ -42,6 +61,10 @@ std::string Aidan::readString(std::ifstream& fs) {
 	return x;
 }
 
+/**
+ * @param fs - File Stream
+ * @return Color - Makes a new Color Struct with the values read from the file specified
+ */
 Color Aidan::readColor(std::ifstream& fs) {
 	Color c;
 	c.r = readDouble(fs);
@@ -51,6 +74,10 @@ Color Aidan::readColor(std::ifstream& fs) {
 	return c;
 }
 
+/**
+ * @param fs - File Stream
+ * @return Color - Makes a new Color Struct without Alpha with the values read from the file specified
+ */
 Color Aidan::readColorLight(std::ifstream& fs) {
 	Color c;
 	c.r = readDouble(fs);
@@ -59,6 +86,10 @@ Color Aidan::readColorLight(std::ifstream& fs) {
 	return c;
 }
 
+/**
+ * @param fs - File Stream
+ * @return Vector2 - Makes a new Vector2 Struct with the values read from the file specified
+ */
 Vector2 Aidan::readVector2(std::ifstream& fs) {
 	Vector2 v;
 	v.x = readDouble(fs);
@@ -66,6 +97,10 @@ Vector2 Aidan::readVector2(std::ifstream& fs) {
 	return v;
 }
 
+/**
+ * @param fs - File Stream
+ * @return Vector3 - Makes a new Vector3 Struct with the values read from the file specified
+ */
 Vector3 Aidan::readVector3(std::ifstream& fs) {
 	Vector3 v;
 	v.x = readDouble(fs);
@@ -74,6 +109,10 @@ Vector3 Aidan::readVector3(std::ifstream& fs) {
 	return v;
 }
 
+/**
+ * @param fs - File Stream
+ * @return Triangle - Makes a new Triangle Struct with the values read from the file specified
+ */
 Triangle Aidan::readTriangle(std::ifstream& fs) {
 	Triangle t;
 	t.a = readInt(fs);
@@ -82,6 +121,10 @@ Triangle Aidan::readTriangle(std::ifstream& fs) {
 	return t;
 }
 
+/**
+ * @param fs - File Stream
+ * @return MapData - Makes a new MapData Struct with the values read from the file specified
+ */
 MapData Aidan::readMapData(std::ifstream& fs) {
 	MapData md;
 	md.xTiling = readDouble(fs);
