@@ -14,7 +14,9 @@ This project started as the name Stadia by Robert and Eric Pogue. They created a
 - [GameJolt](https://gamejolt.com) - Hosting the *.zip of the latest build that users can download
 - [GitHub](https://github.com) - Helps share the code with each of the group members and ensure everone is on the same page
 
-## Important Files
+## Important Files]
+- /Aidan - This is the directory that has everything associated with Unreal Engine
+- /Aidan/Aidan.uproject - Opens the Unreal Project in Unreal Engine 4.27. This will build the required files that are loaded by your machine and not pushed to GitHub
 - [Binary Reader](Aidan/Source/Aidan/Private/BinaryReader.cpp) - Utility class that helps read the different aspects of the .ali file
 - [Reader](Aidan/Source/Aidan/Private/Reader.cpp) - The class that calls the Binary Reader functions to return the the structs that qill be used in Unreal (Mesh, Light, and Material)
 - [ReaderData](Aidan/Source/Aidan/Private/ReaderData.cpp) - The default constructors of the different types that will be called in Unreal

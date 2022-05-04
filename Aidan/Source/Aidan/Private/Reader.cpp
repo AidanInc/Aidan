@@ -4,6 +4,9 @@
 
 using namespace Aidan;
 
+/**
+ * Values of the byte identifier to determine what the asset being read next in the file is 
+ */
 const unsigned char ASSET_TYPE_LIGHT = 2;
 const unsigned char ASSET_TYPE_CAMERA = -1;
 const unsigned char ASSET_TYPE_MATERIAL = 1;
@@ -18,6 +21,10 @@ Reader::Reader() {
 
 }
 
+/**
+ * 
+ * @return AssetType - Set an ENUM status for what we are currently reading
+ */
 AssetType Reader::peekNextAsset() {
 	if (endOfFile()) return AssetType::NONE;
 	unsigned char asset = peekByte(fs);
@@ -37,7 +44,9 @@ AssetType Reader::peekNextAsset() {
 		
 	};
 }
-
+/**
+ * @return Light - returns the Light Struct that will be used in Unreal
+ */
 Light Reader::readLight() {
 	unsigned char nextAsset = readByte(fs);
 	if (nextAsset != ASSET_TYPE_LIGHT) throw std::runtime_error("Expecting to read light info failed!");
@@ -49,6 +58,9 @@ Light Reader::readLight() {
 	return l;
 }
 
+/**
+ * @return Camera  - returns the camera asset (not being used)
+ */
 Camera Reader::readCamera() {
 	unsigned char nextAsset = readByte(fs);
 	if (nextAsset != ASSET_TYPE_CAMERA) throw std::runtime_error("Expecting to read camera info failed!");
@@ -60,6 +72,9 @@ Camera Reader::readCamera() {
 	return c;
 }
 
+/**
+ * @return Mesh - return the Mesh Struct that will be used in Unreal
+ */
 Mesh Reader::readMesh() {
 	unsigned char nextAsset = readByte(fs);
 	if (nextAsset != ASSET_TYPE_MESH) throw std::runtime_error("Expecting to read mesh info failed!");
@@ -95,10 +110,12 @@ Mesh Reader::readMesh() {
 	}
 	return m;
 }
-
+/**
+ * @return Material - returns a material that will be applied to the Unreal Mesh
+ */
 Material Reader::readMaterial() {
 	/**
-	 * bytes that are in the ali file
+	 * byte values that are in the ali file that determine these characteristics 
 	 */
 	const unsigned char NAME = 50;
 	const unsigned char TRANSPARENT = 51;
@@ -141,6 +158,9 @@ Material Reader::readMaterial() {
 	return m;
 }
 
+/**
+ * @return - returns is the file done being read
+ */
 bool Reader::endOfFile() {
 	return fs.eof() || fs.peek() == EOF;
 }
