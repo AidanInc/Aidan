@@ -9,6 +9,9 @@ The tools that we are using to help communicate to each other are:
 
 ## Team Roles
 Brennan Price - Scrum Master
+
+Brian Johnson - Product Owner
+
 Jakob London - Team Member
-Brian Johnson - Team Member
+
 Erik Meyer - Team Member
