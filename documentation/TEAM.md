@@ -1,14 +1,14 @@
 # Team Members
 
-Our team name is the  **Iteration Station**.  Our team website can be viewed [here.](https://witty-meadow-055b73d10.1.azurestaticapps.net/)
+Our team name is the  **MaelScrum**.
 
-## Kyle Brick
+## Jakob London
 
-Email:  kylecbrick@lewisu.edu
+Email:  jakoblondon@lewisu.edu
 
-GitHub: [kbrick712](https://github.com/kbrick712)
+GitHub: [JakobLondon](https://github.com/JakobLondon)
 
-Role: 
+Role: Member
 
 ## Bryan Gabe
 
