@@ -19,6 +19,14 @@ Github: [BriToons](https://github.com/BriToons)
 
 Role: Member
 
+## Erik Meyer
+
+Email:  erikmeyer@lewisu.edu
+
+GitHub: [ErikLMeyer](https://github.com/ErikLMeyer)
+
+Role: Member
+
 ## Paula Grata
 
 Email: paulargrata@lewisu.edu
