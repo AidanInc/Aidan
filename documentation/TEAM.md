@@ -10,15 +10,14 @@ GitHub: [JakobLondon](https://github.com/JakobLondon)
 
 Role: Member
 
-## Bryan Gabe
+## Brian Johnson
 
-Email: bryantgabe@lewisu.edu
+Email: brianejohnson@lewisu.edu
 
-Other: gabebryan0@gmail.com
 
-Github: [BryanGabe00](https://github.com/BryanGabe00)
+Github: [BriToons](https://github.com/BriToons)
 
-Role: Product Owner
+Role: Member
 
 ## Paula Grata
 
