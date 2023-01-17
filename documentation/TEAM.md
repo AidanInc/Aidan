@@ -27,39 +27,10 @@ GitHub: [ErikLMeyer](https://github.com/ErikLMeyer)
 
 Role: Member
 
-## Paula Grata
+## Brennan Price
 
-Email: paulargrata@lewisu.edu
+Email: brennanjprice@lewisu.edu
 
-Github: [befreshyo](https://github.com/befreshyo)
-
-Role: Member
-
-## Adrian Perez
-
-Email: adrianjperez@lewisu.edu
-
-Other: perez324158@gmail.com
-
-Github: [7aperez](https://github.com/7pereza)
+Github: [BJPrice01](https://github.com/BJPrice01)
 
 Role: Member
-
-## Malik Tifah
-
-Email: malikltifah@lewisu.edu
-
-Other: Maliktifah378@gmail.com
-
-Github: [MalikGB](https://github.com/MalikGB)
-
-Role: Member
-
-## Diya Patel
-Email: diyapatel@lewisu.edu
-
-Github: [dya-create](https://github.com/dya-create)
-
-Role: Member
-
-
