@@ -10,7 +10,7 @@ This project started as the name Stadia by Robert and Eric Pogue. They created a
 [For more about the intial efforts click here](https://www.lewis.education/?cpsc=sp22-cpsc-49200-001&hide-nav=y#/activity/aidan)
 ## Set Up 
 ### Downloading Executable
-[Link to teams gamejolt](https://gamejolt.com/games/aidan-interactive-rendering/703091)
+[Link to prior team's gamejolt](https://gamejolt.com/games/aidan-interactive-rendering/703091)
 go to the teams gamejolt website, this is where the packaged executable file is host. Once the program has finished downloading open it (you will need to unzip it first), you should then see the exe file called `Aidan.exe` and run the program.
 
 When the program is running first go to `Model Options` and click on the `Defalut` so it can download the need file, after the wall of text in blue has stoped you can go back to the home screen and click on `Start` and the rendering should start
@@ -48,7 +48,7 @@ After generating it should have these folders and files:
 *Note: If for some reason the download of the ali file is not working you can paste the file. First make the dir `ali/` under the root project and paste the `model.ALI` in there [model ali file in github](/other-resources/alifiles/model.ALI)  
 
 ## Project Info
-The Team Minimum Viable Product [Learn more here](/documentation/MVP.md)
+The Team Minimum Viable Product [TBD](/documentation/MVP.md)
 
 Learn about our Continuous Intergration and Continuous Delivery [click here for CI-CD](/documentation/CI-CD.md)
 
