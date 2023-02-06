@@ -6,9 +6,13 @@ The main branch will hold the stable build of that project and likey means that 
 
 when working on the project make a new branch 
 
+A similar setup will be used for the Revit Add-on, where the main branch will be the current stable build that can be used with the Revit Architecure software. 
+
 ## Continuous Delivery
 
 GameJolt will host our build for users to access, [Link: Game Jolt team page](https://gamejolt.com/games/aidan-interactive-rendering/703091)
+
+We also would like to host the Revit add-on on a publicly accessible web page once we have the ability to share it.
 
 At the moment to downland the game file a gamejolt account is need (sign up is free) and game invite link will need to made individually for any wanting to download the files. Another option is to build the project yourself locally []()
 
