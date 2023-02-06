@@ -48,7 +48,7 @@ After generating it should have these folders and files:
 *Note: If for some reason the download of the ali file is not working you can paste the file. First make the dir `ali/` under the root project and paste the `model.ALI` in there [model ali file in github](/other-resources/alifiles/model.ALI)  
 
 ## Project Info
-The Team Minimum Viable Product [TBD](/documentation/MVP.md)
+The Team Minimum Viable Product [MVP Link](/documentation/MVP.md)
 
 Learn about our Continuous Intergration and Continuous Delivery [click here for CI-CD](/documentation/CI-CD.md)
 
