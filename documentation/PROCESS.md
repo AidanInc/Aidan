@@ -8,10 +8,10 @@ The tools that we are using to help communicate to each other are:
 - Email
 
 ## Team Roles
-Brennan Price - Scrum Master
+Brennan Price - Scrum Master (Team Revit)
 
-Brian Johnson - Product Owner
+Brian Johnson - Product Owner (Team Revit)
 
-Jakob London - Team Member
+Jakob London - Team Member (Team Unreal)
 
-Erik Meyer - Team Member
+Erik Meyer - Team Member (Team Unreal)
