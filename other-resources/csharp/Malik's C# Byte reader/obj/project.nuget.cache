@@ -1,8 +1,45 @@
 {
   "version": 2,
-  "dgSpecHash": "4lcwJQ8HdcGaDCefVW+8KFutziqlVZWPOo5+tbQBC8QpgTcSMUwj0vVNTTbggKMTuPWALPGpctJuvcTj532w4w==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\malik\\onedrive\\desktop\\app\\app.csproj",
+  "dgSpecHash": "bV9826GZ4mOvo6Wn9ldQqSvh3IGrnTItb0fS9LcUZ29X9IGl+dFkmyq5/+jaUoqyRmrFzH+NrjIMWo62AgLUWQ==",
+  "success": false,
+  "projectFilePath": "C:\\Users\\Erik\\Documents\\School_stuff\\Spring_2023\\Capstone\\Aiden\\other-resources\\csharp\\Malik's C# Byte reader\\app.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.NETCore.App.Ref (= 6.0.13)' for 'net6.0'.",
+      "libraryId": "Microsoft.NETCore.App.Ref",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.WindowsDesktop.App.Ref (= 6.0.13)' for 'net6.0'.",
+      "libraryId": "Microsoft.WindowsDesktop.App.Ref",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.AspNetCore.App.Ref (= 6.0.13)' for 'net6.0'.",
+      "libraryId": "Microsoft.AspNetCore.App.Ref",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.NETCore.App.Host.win-x64 (= 6.0.13)' for 'net6.0'.",
+      "libraryId": "Microsoft.NETCore.App.Host.win-x64",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
