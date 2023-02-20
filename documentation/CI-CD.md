@@ -10,7 +10,7 @@ A similar setup will be used for the Revit Add-on, where the main branch will be
 
 ## Continuous Delivery
 
-For continous delivery, we will be purposely not working on this aspect of CI/CD for our MVP. This is due to the immense difficulty of implementing CI/CD in our type of project. We do not have the luxury of working for weeks on launchers for both the Revit exporter and Unreal importer.
+For continous delivery, we will be purposely not working on this aspect of CI/CD for our MVP. This is due to the immense difficulty of implementing CI/CD in our type of project. We do not have the luxury of working for weeks on launchers for both the Revit exporter and Unreal importer. We will be manually delivering the importer and exporter to users via installation onto user machines by a team member.
 
 If a future team would like to work on this aspect of Aidan, that would be a boon to the project.
 
