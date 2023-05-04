@@ -15,6 +15,13 @@ This project started as the name Stadia by Robert and Eric Pogue. They created a
 ## Important Files
 - TO BE ADDED
 
+## How to Build Unreal Importer
+- Make an Unreal Engine account and download latest Unreal 4 version.
+- Load Unreal Engine.
+- Clone Unreal Project from GitHub.
+- Using the Load Project options, load the cloned project.
+- Connect project to source control via button on top of screen.
+
 ## Current Progress
 - Receive both the Revit exporter and Unreal importer
 - Run and execute the exporter.
